@@ -1,0 +1,123 @@
+---
+import { tienda, formatearMoneda, buildWhatsAppUrl } from '../data/tienda';
+
+const p = tienda.productoDestacado;
+const waUrl = buildWhatsAppUrl(tienda.negocio.whatsappInternacional, p.mensajeWhatsApp);
+const ahorro = p.precioAnterior ? p.precioAnterior - p.precio : 0;
+---
+
+<div class="bg-surface-container-lowest rounded-xl shadow-xl border-2 border-primary-container p-6 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+  <!-- Visual Column -->
+  <div class="lg:col-span-6 relative flex flex-col items-center">
+    <div class="w-full rounded-lg overflow-hidden bg-surface-container aspect-square max-h-[460px] relative border border-outline-variant/40 shadow-inner">
+      <img
+        src={p.imagen}
+        alt={p.nombre}
+        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        loading="eager"
+      />
+      <!-- Top Badges -->
+      <div class="absolute top-4 left-4 flex flex-col gap-2">
+        <span class="bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-3 py-1 rounded font-bold shadow-md uppercase tracking-wider">
+          ★ OFERTA ESPECIAL
+        </span>
+        <span class="bg-primary text-secondary-container font-label-badge text-label-badge px-3 py-1 rounded font-bold shadow-md uppercase tracking-wider">
+          -19% OFF GREMIO
+        </span>
+      </div>
+
+      <!-- Bottom Status Pill -->
+      <div class="absolute bottom-4 left-4 bg-surface-container-lowest/95 backdrop-blur px-3 py-1.5 rounded flex items-center gap-2 border border-outline-variant/40 shadow">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="font-label-badge text-label-badge uppercase text-on-surface font-bold tracking-wider">
+          STOCK DISPONIBLE INMEDIATO
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Column -->
+  <div class="lg:col-span-6 flex flex-col justify-between space-y-6">
+    <div class="space-y-3">
+      <div class="font-label-badge text-label-badge uppercase tracking-wider text-secondary font-bold">
+        {p.categoria || 'Pinturas & Impermeabilización Profesional'}
+      </div>
+      <h3 class="font-headline-lg text-2xl sm:text-3xl uppercase text-on-surface leading-tight font-extrabold">
+        {p.nombre}
+      </h3>
+      <p class="font-body-lg text-base text-on-surface-variant leading-relaxed">
+        {p.descripcion}
+      </p>
+    </div>
+
+    <!-- Mini Spec Badges -->
+    {p.specs && (
+      <div class="grid grid-cols-3 gap-2 bg-surface-container-low p-3 rounded border border-outline-variant/30">
+        {p.specs.map((spec, index) => (
+          <div class={`text-center ${index === 1 ? 'border-x border-outline-variant/40' : ''}`}>
+            <span class="font-label-badge text-label-badge text-on-surface-variant block uppercase tracking-wider">
+              {spec.label}
+            </span>
+            <span class="font-label-md text-label-md text-on-surface font-bold">
+              {spec.valor}
+            </span>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Pricing & Checkout Info -->
+    <div class="p-4 bg-surface-container rounded-lg flex flex-col sm:flex-row items-baseline justify-between gap-3 border border-outline-variant/30">
+      <div>
+        {p.precioAnterior && (
+          <div class="flex items-center gap-2">
+            <span class="font-body-md text-body-md line-through text-on-surface-variant font-medium">
+              {formatearMoneda(p.precioAnterior, p.moneda)}
+            </span>
+            {ahorro > 0 && (
+              <span class="font-label-badge text-label-badge bg-tertiary-container text-on-tertiary-container px-2 py-0.5 rounded font-bold uppercase">
+                AHORRO {formatearMoneda(ahorro, p.moneda)}
+              </span>
+            )}
+          </div>
+        )}
+        <div class="flex items-baseline gap-2 mt-0.5">
+          <span class="font-price-display text-3xl sm:text-4xl text-primary font-extrabold tracking-tight">
+            {formatearMoneda(p.precio, p.moneda)}
+          </span>
+          <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">
+            (IVA incluido)
+          </span>
+        </div>
+      </div>
+      <div class="font-label-badge text-label-badge text-secondary font-bold uppercase tracking-wider bg-surface-container-lowest px-2.5 py-1 rounded border border-secondary/20">
+        3 Cuotas fijas sin interés
+      </div>
+    </div>
+
+    <!-- Action Buttons Cluster: Mercado Pago & WhatsApp -->
+    <div class="flex flex-col sm:flex-row gap-3 pt-1">
+      <!-- Botón 1: Comprar Online (Mercado Pago) -->
+      <a
+        href={p.linkMercadoPago}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_3px_0px_#121519] active:translate-y-0.5 transition-all text-center font-bold"
+      >
+        <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        <span>Comprar Online</span>
+      </a>
+
+      <!-- Botón 2: Pedir por WhatsApp -->
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg uppercase rounded shadow-[0_3px_0px_#121519] active:translate-y-0.5 transition-all text-center font-bold border border-primary-fixed-dim/20"
+      >
+        <span class="material-symbols-outlined text-[20px] text-secondary-container">chat</span>
+        <span>Pedir por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>

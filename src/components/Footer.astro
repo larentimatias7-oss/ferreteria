@@ -1,0 +1,128 @@
+---
+import { tienda, buildWhatsAppUrl } from '../data/tienda';
+
+const waFooterUrl = buildWhatsAppUrl(
+  tienda.negocio.whatsappInternacional,
+  `Hola ${tienda.negocio.nombre}, quisiera realizar una consulta técnica comercial.`
+);
+const cleanPhone = tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '');
+const currentYear = new Date().getFullYear();
+---
+
+<!-- Technical Data Ribbon -->
+<section class="w-full bg-primary text-on-primary py-6 px-4 md:px-8 border-t border-primary-container">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <div class="flex items-center gap-3 flex-wrap justify-center md:justify-start">
+      <span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary-container font-bold">
+        Razón Social: {tienda.negocio.razonSocial}
+      </span>
+      <span class="text-on-primary-container hidden sm:inline">•</span>
+      <span class="font-label-badge text-label-badge uppercase text-on-primary-container">
+        CUIT: {tienda.negocio.cuit}
+      </span>
+      <span class="text-on-primary-container hidden sm:inline">•</span>
+      <span class="font-label-badge text-label-badge uppercase text-on-primary-container">
+        Ingresos Brutos Convenio Multilateral
+      </span>
+    </div>
+
+    <div class="flex items-center gap-3 flex-wrap justify-center">
+      <span class="font-label-badge text-label-badge uppercase text-on-primary-container">
+        Medios Aceptados:
+      </span>
+      <div class="flex items-center gap-2 font-label-badge text-label-badge bg-primary-container px-3 py-1.5 rounded text-on-primary border border-outline-variant/30">
+        <span>VISA</span>
+        <span>•</span>
+        <span>MASTER</span>
+        <span>•</span>
+        <span>TRANSFERENCIA 3.0</span>
+        <span>•</span>
+        <span>EFECTIVO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Footer -->
+<footer class="w-full bg-primary-container text-on-primary-container pt-12 pb-8 border-t border-primary">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12">
+    <!-- Col 1: Brand Info -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded bg-primary flex items-center justify-center border border-secondary-container/40">
+          <svg class="w-5 h-5 text-secondary-container" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5 4h3v6h8V4h3v16h-3v-7H8v7H5V4z"/>
+          </svg>
+        </div>
+        <span class="font-headline-sm text-lg uppercase text-on-primary font-bold">
+          {tienda.negocio.nombre}
+        </span>
+      </div>
+      <p class="font-body-sm text-sm text-on-primary-container leading-relaxed">
+        Suministros industriales, materiales para la construcción pesada y ferretería técnica sobre corredor productivo.
+      </p>
+    </div>
+
+    <!-- Col 2: Location & Logistics -->
+    <div class="space-y-3">
+      <h4 class="font-label-lg text-sm uppercase text-on-primary font-bold tracking-wider">
+        Ubicación y Logística
+      </h4>
+      <p class="font-body-sm text-sm text-on-primary-container">
+        📍 {tienda.negocio.direccion}
+      </p>
+      <p class="font-body-sm text-sm text-on-primary-container">
+        Acceso directo camiones y carga pesada
+      </p>
+      <p class="font-body-sm text-sm text-on-primary-container">
+        Playa de estacionamiento y descarga
+      </p>
+    </div>
+
+    <!-- Col 3: Direct Contact -->
+    <div class="space-y-3">
+      <h4 class="font-label-lg text-sm uppercase text-on-primary font-bold tracking-wider">
+        Contacto Directo
+      </h4>
+      <p class="font-body-sm text-sm">
+        📞 <a href={`tel:${cleanPhone}`} class="hover:text-on-primary transition-colors">Ventas Mostrador: {tienda.negocio.telefonoLlamadas}</a>
+      </p>
+      <p class="font-body-sm text-sm">
+        💬 <a href={waFooterUrl} target="_blank" rel="noopener noreferrer" class="hover:text-on-primary transition-colors">Canal Gremio: WhatsApp Directo</a>
+      </p>
+      <p class="font-body-sm text-sm">
+        ✉️ <a href={`mailto:${tienda.negocio.email}`} class="hover:text-on-primary transition-colors">{tienda.negocio.email}</a>
+      </p>
+    </div>
+
+    <!-- Col 4: Business Hours -->
+    <div class="space-y-3">
+      <h4 class="font-label-lg text-sm uppercase text-on-primary font-bold tracking-wider">
+        Horarios de Atención
+      </h4>
+      <p class="font-body-sm text-sm text-on-primary-container">
+        {tienda.negocio.horarioSemana}
+      </p>
+      <p class="font-body-sm text-sm text-on-primary-container">
+        {tienda.negocio.horarioSabado}
+      </p>
+      <span class="inline-block mt-2 font-label-badge text-label-badge text-secondary-container font-bold uppercase tracking-wider">
+        Despacho exprés a pie de obra
+      </span>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="max-w-7xl mx-auto px-4 md:px-8 pt-6 border-t border-primary flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+    <p class="font-body-sm text-on-primary-container text-center md:text-left">
+      © {currentYear} {tienda.negocio.nombre}. Todos los derechos reservados. Suministros Industriales {tienda.negocio.direccion}.
+    </p>
+    <div class="flex items-center gap-4 font-label-md text-on-primary-container">
+      <a href="#presupuestos" class="hover:text-on-primary transition-colors">Presupuestos Rápidos</a>
+      <span>•</span>
+      <a href="#ofertas" class="hover:text-on-primary transition-colors">Ofertas Semanales</a>
+      <span>•</span>
+      <a href="#ubicacion" class="hover:text-on-primary transition-colors">Cómo Llegar</a>
+    </div>
+  </div>
+</footer>

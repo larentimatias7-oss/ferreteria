@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800&amp;family=Space+Grotesk:wght@700&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-container": "#ed5a0f", "on-surface": "#131b2e", "on-tertiary": "#ffffff", "secondary-fixed": "#ffddb8", "on-surface-variant": "#45474b", "surface-dim": "#d2d9f4", "surface-container-lowest": "#ffffff", "surface-container-high": "#e2e7ff", "surface-tint": "#5a5f67", "inverse-on-surface": "#eef0ff", "secondary-container": "#fea619", "background": "#faf8ff", "error": "#ba1a1a", "surface-container": "#eaedff", "on-secondary": "#ffffff", "secondary-fixed-dim": "#ffb95f", "tertiary-fixed": "#ffdbce", "on-secondary-container": "#684000", "surface": "#faf8ff", "error-container": "#ffdad6", "inverse-surface": "#283044", "surface-container-low": "#f2f3ff", "outline-variant": "#c5c6cb", "surface-bright": "#faf8ff", "on-tertiary-fixed-variant": "#7f2b00", "secondary": "#855300", "primary-container": "#1e232a", "tertiary": "#1f0500", "surface-container-highest": "#dae2fd", "primary-fixed-dim": "#c2c7d0", "on-background": "#131b2e", "on-error-container": "#93000a", "surface-variant": "#dae2fd", "on-primary": "#ffffff", "on-primary-container": "#858a93", "tertiary-fixed-dim": "#ffb599", "on-secondary-fixed-variant": "#653e00", "outline": "#75777b", "on-primary-fixed": "#171c23", "primary": "#080d13", "on-secondary-fixed": "#2a1700", "tertiary-container": "#431300", "primary-fixed": "#dee2ec", "on-tertiary-fixed": "#370e00", "on-primary-fixed-variant": "#42474f", "inverse-primary": "#c2c7d0", "on-error": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-sm": "0.5rem", "space-xl": "2.5rem", "margin-lg": "3rem", "space-lg": "1.5rem", "gutter-md": "1.5rem", "margin": "1rem", "margin-md": "2rem", "space-xs": "0.25rem", "space-md": "1rem", "gutter": "1rem", "gutter-lg": "2rem" }, "fontFamily": { "label-lg": [ "Space Grotesk" ], "headline-xl-mobile": [ "Chivo" ], "headline-sm": [ "Chivo" ], "headline-lg-mobile": [ "Chivo" ], "price-display": [ "Chivo" ], "label-badge": [ "Space Grotesk" ], "headline-md": [ "Chivo" ], "body-sm": [ "Work Sans" ], "label-md": [ "Space Grotesk" ], "headline-xl": [ "Chivo" ], "headline-lg": [ "Chivo" ], "body-lg": [ "Work Sans" ], "body-md": [ "Work Sans" ] }, "fontSize": { "label-lg": [ "14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" } ], "headline-xl-mobile": [ "32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "fontWeight": "700" } ], "headline-lg-mobile": [ "24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "price-display": [ "28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "label-badge": [ "10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" } ], "headline-md": [ "22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" } ], "headline-xl": [ "48px", { "lineHeight": "54px", "letterSpacing": "-0.03em", "fontWeight": "800" } ], "headline-lg": [ "32px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-primary-container shadow-[0_1px_8px_rgba(0,0,0,0.2)]"><div class="h-20 w-full px-gutter-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Ferretería H Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VMK-hvBAG8XonE0OeGs4Prrp8SfwQA5ruQJyFCbJj4PHgDeXeNQgIOOnzZWIb5Wk1m7vVqMUAi0QfrvPkIoFDjLSblCMrNZ32PV2CDhcKMWX-PATNNk6opKOXBNXDi67oNxucoRkuWdh0cnXtWTDw0hREb9Yp8ZsMooA1X5OCN0KLjS6FHOmtnHhGCWZeoTGV3raR1F3h-0C4CK282XB7y2Yp3oY6ZiyxEbycgiAMDh9vJ_WhYdGOZzB4"/><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-primary">Ferretería H</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-primary text-secondary-container font-label-md text-label-md"><span class="material-symbols-outlined text-[16px]">location_on</span><span>Ruta Provincial 26S km 2</span></div><div class="hidden lg:flex items-center gap-space-xs font-label-md text-label-md text-on-primary-container"><span class="material-symbols-outlined text-[16px]">call</span><span>341-777777</span></div></div><nav class="hidden md:flex items-center gap-space-xs" data-active-classes="bg-primary text-secondary-container"><a aria-current="page" class="px-space-md py-space-sm font-label-lg uppercase tracking-wider rounded transition-colors bg-primary text-secondary-container" data-path="ofertas-de-la-semana" href="#">Ofertas de la Semana</a><a class="px-space-md py-space-sm font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container hover:bg-primary hover:text-on-primary rounded transition-colors" data-path="presupuestos-rapidos" href="#">Presupuestos Rápidos</a><a class="px-space-md py-space-sm font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container hover:bg-primary hover:text-on-primary rounded transition-colors" data-path="ubicacion-y-horarios" href="#">Ubicación y Horarios</a></nav><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs px-space-md py-space-sm bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_2px_0px_#121519] active:translate-y-0.5 transition-all" href="https://wa.me/549341777777" target="_blank"><span class="material-symbols-outlined text-[18px]">chat</span><span>WhatsApp Directo</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- 1. PORTADA HERO SECTION -->
+<section class="relative w-full bg-primary-container text-on-primary py-space-xl px-gutter md:px-gutter-lg overflow-hidden">
+<!-- Industrial Grid Background Texture -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<div class="lg:col-span-7 flex flex-col items-start space-y-space-md">
+<!-- Trust badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded bg-primary text-secondary-container font-label-md text-label-md uppercase tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Atención Inmediata por WhatsApp</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-primary leading-tight">
+          Materiales, Pinturas y Herramientas para Hogar y Obra
+        </h1>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl">
+          Encontranos sobre <strong class="text-on-primary">Ruta Provincial 26S km 2</strong>. Stock permanente, acopio asegurado y despacho directo para particulares, profesionales y empresas constructoras.
+        </p>
+<!-- CTA Action Cluster -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all" href="#ofertas">
+<span class="material-symbols-outlined text-[20px]">local_offer</span>
+<span>Ver Ofertas de la Semana</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all" href="https://wa.me/549341777777?text=Hola,%20quisiera%20consultar%20stock%20disponible" target="_blank">
+<span class="material-symbols-outlined text-[20px] text-secondary">forum</span>
+<span>Consultar Stock Ahora</span>
+</a>
+</div>
+<!-- Quick Specs Banner -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-md border-t border-primary w-full">
+<div>
+<div class="font-label-badge text-label-badge text-on-primary-container uppercase">Despacho</div>
+<div class="font-label-md text-label-md text-on-primary">En el día</div>
+</div>
+<div>
+<div class="font-label-badge text-label-badge text-on-primary-container uppercase">Acopio</div>
+<div class="font-label-md text-label-md text-on-primary">Sin cargo x 90d</div>
+</div>
+<div>
+<div class="font-label-badge text-label-badge text-on-primary-container uppercase">Mostrador</div>
+<div class="font-label-md text-label-md text-on-primary">Retiro exprés</div>
+</div>
+</div>
+</div>
+<!-- Hero Visual Accent -->
+<div class="lg:col-span-5 relative flex justify-center">
+<div class="relative w-full max-w-md bg-primary p-space-sm rounded-xl shadow-xl border-2 border-primary-fixed-dim/20">
+<div class="overflow-hidden rounded-lg aspect-square relative bg-primary-container">
+<img alt="Impermeabilizante Membrana Líquida en Galpón" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY6YIR57x5mkl_n_8SXTOiK-zvzz59GoNTp4pgsJWX4RTXdETVaInGwydtueJfnRpQvKmHJixGr7_ombq1QhGqKmdgELMccSzeXsWQEOOTabKaCI3cf9ID-862a0uwgJSBWTZuu8scJk8UbZOy08TPs7ZubGU_dhnqnz3Z785MRSGn9Q_5yls1eHnUgwaW11VfRsYX8xMOq2eaXnXrPLL-hBsw1k1hKlfZVTKCfWYNObUe5fUWV53EKw"/>
+<div class="absolute top-space-sm left-space-sm bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-space-sm py-space-xs rounded shadow">
+              DESTACADO DE OBRA
+            </div>
+</div>
+<div class="p-space-md bg-primary-container rounded-b-lg mt-space-xs flex items-center justify-between">
+<div>
+<span class="font-label-badge text-label-badge text-secondary-container uppercase block">Disponibilidad en Playa</span>
+<span class="font-headline-sm text-headline-sm text-on-primary">Retiro directo en Ruta 26S</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-[28px]">forklift</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. FRANJA DE CONFIANZA (4 TRUST PILLARS) -->
+<section class="w-full bg-surface-container-low py-space-xl px-gutter md:px-gutter-lg border-b border-surface-container">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Pilar 1 -->
+<div class="bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">local_shipping</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase">Entrega en Zona</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Despacho ágil en obras de toda la región y retiro inmediato en mostrador sin demoras.</p>
+</div>
+<span class="inline-block mt-space-md font-label-badge text-label-badge uppercase tracking-wider text-secondary">Logística Pesada</span>
+</div>
+<!-- Pilar 2 -->
+<div class="bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">engineering</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase">Atención Experta</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Asesoramiento técnico en obra civil, membranas líquidas, pinturas e impermeabilizaciones.</p>
+</div>
+<span class="inline-block mt-space-md font-label-badge text-label-badge uppercase tracking-wider text-secondary">Personal Capacitado</span>
+</div>
+<!-- Pilar 3 -->
+<div class="bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">credit_card</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase">Medios de Pago</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Efectivo en mostrador, transferencias inmediatas, tarjetas de débito y crédito con cuotas.</p>
+</div>
+<span class="inline-block mt-space-md font-label-badge text-label-badge uppercase tracking-wider text-secondary">Facturación A y B</span>
+</div>
+<!-- Pilar 4 -->
+<div class="bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded bg-primary-container text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">receipt_long</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase">Cotización Rápida</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Envianos tu lista de materiales en foto o texto y te pasamos el presupuesto al instante.</p>
+</div>
+<span class="inline-block mt-space-md font-label-badge text-label-badge uppercase tracking-wider text-secondary">Respuesta &lt; 15 min</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. SECCIÓN OFERTAS DESTACADAS -->
+<section class="w-full bg-background py-space-xl px-gutter md:px-gutter-lg" id="ofertas">
+<div class="max-w-7xl mx-auto space-y-space-xl">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b-2 border-primary-container pb-space-md">
+<div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-secondary-container text-on-secondary-container font-label-badge text-label-badge uppercase tracking-widest mb-space-xs">
+<span class="material-symbols-outlined text-[14px]">sell</span>
+<span>Precios Especiales por Tiempo Limitado</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl uppercase text-on-surface tracking-tight">Ofertas de la Semana</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Precios con IVA incluido para compras minoristas y por volumen. Stock directo en sucursal Ruta 26S.
+        </p>
+</div>
+<!-- PRODUCTO ESTRELLA (Featured Hero Product Card - Extra Large) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-lg border-2 border-primary-container p-space-md md:p-space-xl grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Visual Column -->
+<div class="lg:col-span-6 relative flex flex-col items-center">
+<div class="w-full rounded-lg overflow-hidden bg-surface-container aspect-square max-h-[460px] relative">
+<img alt="Impermeabilizante Techo Terrazas Rojo 20lt en Galpón Ferretería" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY6YIR57x5mkl_n_8SXTOiK-zvzz59GoNTp4pgsJWX4RTXdETVaInGwydtueJfnRpQvKmHJixGr7_ombq1QhGqKmdgELMccSzeXsWQEOOTabKaCI3cf9ID-862a0uwgJSBWTZuu8scJk8UbZOy08TPs7ZubGU_dhnqnz3Z785MRSGn9Q_5yls1eHnUgwaW11VfRsYX8xMOq2eaXnXrPLL-hBsw1k1hKlfZVTKCfWYNObUe5fUWV53EKw"/>
+<div class="absolute top-space-md left-space-md flex flex-col gap-space-xs">
+<span class="bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-space-sm py-space-xs rounded font-bold shadow">
+                ★ OFERTA ESPECIAL
+              </span>
+<span class="bg-primary text-secondary-container font-label-badge text-label-badge px-space-sm py-space-xs rounded font-bold shadow">
+                -19% OFF GREMIO
+              </span>
+</div>
+<div class="absolute bottom-space-md left-space-md bg-surface-container-lowest/90 backdrop-blur px-space-sm py-space-xs rounded flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface">STOCK DISPONIBLE INMEDIATO</span>
+</div>
+</div>
+</div>
+<!-- Details Column -->
+<div class="lg:col-span-6 flex flex-col justify-between space-y-space-md">
+<div>
+<div class="font-label-badge text-label-badge uppercase tracking-wider text-secondary font-bold">
+              Pinturas &amp; Impermeabilización Profesional
+            </div>
+<h3 class="font-headline-lg text-headline-lg uppercase text-on-surface mt-space-xs leading-snug">
+              Impermeabilizante Techo Terrazas Rojo 20lt. Sherwin-Williams
+            </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm">
+              Membrana líquida transitable formulada con resinas acrílicas puras de alta elasticidad para resolver y prevenir filtraciones en losas, chapas y muros. Resistencia extrema a los rayos UV e inclemencias climáticas severas.
+            </p>
+</div>
+<!-- Mini Spec Badges -->
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-low p-space-sm rounded">
+<div class="text-center">
+<span class="font-label-badge text-label-badge text-on-surface-variant block uppercase">Rendimiento</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">1.5 kg / m²</span>
+</div>
+<div class="text-center border-x border-outline-variant/30">
+<span class="font-label-badge text-label-badge text-on-surface-variant block uppercase">Acabado</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Rojo Teja</span>
+</div>
+<div class="text-center">
+<span class="font-label-badge text-label-badge text-on-surface-variant block uppercase">Envase</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Balde 20 Litros</span>
+</div>
+</div>
+<!-- Pricing & Checkout -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col sm:flex-row items-baseline justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-sm">
+<span class="font-body-md text-body-md line-through text-on-surface-variant">$235.000</span>
+<span class="font-label-badge text-label-badge bg-tertiary-container text-tertiary-fixed px-space-xs py-0.5 rounded font-bold">AHORRO $45.000</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-display text-price-display text-primary font-bold tracking-tight">$190.000</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">(IVA incluido)</span>
+</div>
+</div>
+<div class="font-label-badge text-label-badge text-secondary font-bold uppercase">
+              3 Cuotas fijas sin interés
+            </div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-col sm:flex-row gap-space-sm pt-space-xs">
+<a class="flex-1 inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_3px_0px_#121519] active:translate-y-0.5 transition-all text-center" href="https://wa.me/549341777777?text=Quiero%20comprar%20el%20Impermeabilizante%20Rojo%2020L%20a%20$190000" target="_blank">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+<span>Comprar Online Directo</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg uppercase rounded shadow-[0_3px_0px_#121519] active:translate-y-0.5 transition-all" href="https://wa.me/549341777777?text=Hola,%20consulta%20por%20impermeabilizante%20Sherwin%2020L" target="_blank">
+<span class="material-symbols-outlined text-[20px] text-secondary-container">chat</span>
+<span>Pedir x WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 4 ADDITIONAL PROMOTIONAL CARDS GRID -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Amoladora DeWalt -->
+<div class="bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
+<div>
+<div class="relative bg-surface-container-low aspect-[4/3] flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Compact heavy-duty DeWalt 115mm angle grinder on concrete workshop floor with metal sparks in background, industrial hardware photography, natural contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC20apnuw7mcSfd2f1T57FifAYoGFjuE6AEb0eoKKGmTYE1CylZtCgPY4zUrYcO23rrpC4p-NyqPj7FRcRTWhDvwCCJpW0QiufpsLA2Mp0zUrR6WiyC7SzFhH9vJRITLht823svdlqVvtgAxSqYKXFMJD-cYK_5pa2d_ITyJ2kxij06O_pW93IUBDZ1HTFW1y_6atteEZ2-FEH18PQl5ReHzJzGBxDXRUawE0gfiwVeh6DURxcEf_2ZSg"/>
+<span class="absolute top-space-xs left-space-xs bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-space-xs py-0.5 rounded font-bold">
+                OFERTA HERRAMIENTAS
+              </span>
+</div>
+<div class="p-space-md space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase text-secondary">Herramientas Eléctricas</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Stock Disponible</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">Amoladora Angular 115mm 850W DeWalt</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Motor de alta durabilidad con protección contra sobrecarga y guarda de ajuste rápido.</p>
+</div>
+</div>
+<div class="p-space-md pt-0 space-y-space-sm">
+<div class="border-t border-surface-container-high pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$142.000</span>
+<div class="font-price-display text-price-display text-on-surface leading-tight">$118.500</div>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Precio de contado / Transf.</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<a class="inline-flex items-center justify-center py-space-xs bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Quiero%20comprar%20Amoladora%20DeWalt%20850W">
+                Comprar
+              </a>
+<a class="inline-flex items-center justify-center py-space-xs bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Consulta%20Amoladora%20DeWalt%20850W">
+                WhatsApp
+              </a>
+</div>
+</div>
+</div>
+<!-- Card 2: Klaukol Impermeable -->
+<div class="bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
+<div>
+<div class="relative bg-surface-container-low aspect-[4/3] flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="30kg bags of Klaukol waterproof tile adhesive stacked on a wooden pallet inside an industrial warehouse setting with forklift markings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmwIxcu_iPubFSOmSKRQW5WnoONFOXIqGNRzfd-Go13yI1hkdOv0auy4Ai6pW3fzhaAZy4-dUOJZEsIeFbgqU5FU9s0FLbgXT66R4BwRe2Aurpa8DO23panmRiUWPnNaYI6p7bqttNUadM43fIc4wfX1lYlp_RNw2ypbeg2l7sZf99_9F2W8D_5XSYBuDNjcyWeV2iwpYoZvxKYRDlGeXLWpdpDqD2408gYZIyeGoyNmDbuEHmnmATyg"/>
+<span class="absolute top-space-xs left-space-xs bg-primary text-on-primary font-label-badge text-label-badge px-space-xs py-0.5 rounded font-bold">
+                STOCK DISPONIBLE
+              </span>
+</div>
+<div class="p-space-md space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase text-secondary">Adhesivos Obra</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Pallet o Bolsa</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">Adhesivo Klaukol Impermeable 30kg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mezcla adhesiva impermeable para colocación de pisos y revestimientos cerámicos exteriores.</p>
+</div>
+</div>
+<div class="p-space-md pt-0 space-y-space-sm">
+<div class="border-t border-surface-container-high pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$22.800</span>
+<div class="font-price-display text-price-display text-on-surface leading-tight">$18.900</div>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Descuento por pallet cerrado</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<a class="inline-flex items-center justify-center py-space-xs bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Quiero%20comprar%20Klaukol%20Impermeable%2030kg">
+                Comprar
+              </a>
+<a class="inline-flex items-center justify-center py-space-xs bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Consulta%20precio%20pallet%20Klaukol">
+                WhatsApp
+              </a>
+</div>
+</div>
+</div>
+<!-- Card 3: Discos Bosch -->
+<div class="bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
+<div>
+<div class="relative bg-surface-container-low aspect-[4/3] flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Pack of Bosch metal cutting discs 115x1mm arranged neatly on an industrial steel workbench with technical calipers nearby" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7amkeUDMrem3IBusGKU8gkXxQagHFhJLQd3nZt7ERUztkxEK00oYdk73-UTx-5z6hFpS_LP6mbOeZbpsZZ7He-GEY_IJe3GQnnU7tQ3iQPdW_LjSIfNOAfuZCPu94FWRVyi7GgPPORrDHOo0BvsXMbRWtVCXBX9a-qoTOVdaa3Kmh2G_8iu5mkcJGdNbzavwO_r9WmswZV3-u6K3tbHP8xFj8GZv5bSeBmFw-tQp79sfxGvKJD0JQbw"/>
+<span class="absolute top-space-xs left-space-xs bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-space-xs py-0.5 rounded font-bold">
+                COMBO TALLER
+              </span>
+</div>
+<div class="p-space-md space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase text-secondary">Abrasivos</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">En Mostrador</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">Pack 10 Discos Corte Bosch 115x1.0mm</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Corte rápido y limpio en metales y acero inoxidable sin rebabas. Estuche metálico.</p>
+</div>
+</div>
+<div class="p-space-md pt-0 space-y-space-sm">
+<div class="border-t border-surface-container-high pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$17.500</span>
+<div class="font-price-display text-price-display text-on-surface leading-tight">$14.200</div>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Pack sellado x 10 unidades</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<a class="inline-flex items-center justify-center py-space-xs bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Quiero%20Pack%2010%20Discos%20Bosch">
+                Comprar
+              </a>
+<a class="inline-flex items-center justify-center py-space-xs bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Consulta%20Discos%20Bosch%20Pack">
+                WhatsApp
+              </a>
+</div>
+</div>
+</div>
+<!-- Card 4: Pintura Látex 20L -->
+<div class="bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
+<div>
+<div class="relative bg-surface-container-low aspect-[4/3] flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Large white 20 liter paint bucket for interior and exterior latex with paint rollers and industrial painting equipment in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHuHXhidsTSCarNkKFaMYvvqSbnlWNOFHHuG5xProi9ZhCbkLtWMkEBfLsq6WTqEb8peVMmc9j1UKtG8_KJdmirr9sj-F86cBDJO1oIYYxFSIl5l3HrcaVqnNWbn5qrsFgmvkQj1vPXcmM72cKXUjNCwkPALLB4AIjy9WwO-c7CVUcJIEA-SwL-0ojo0rmcJOtBuG6_JXantzR-sfogJLfsisV0Ryy3_tWgriwU1z_U04hGp2Jw5HPzw"/>
+<span class="absolute top-space-xs left-space-xs bg-tertiary-container text-tertiary-fixed font-label-badge text-label-badge px-space-xs py-0.5 rounded font-bold">
+                PRECIO GREMIO
+              </span>
+</div>
+<div class="p-space-md space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase text-secondary">Pinturas Obra</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Stock Disponible</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">Pintura Látex Int/Ext Antihongo 20L</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Poder cubritivo superior, lavable con aditivo antihongo de alta resistencia ambiental.</p>
+</div>
+</div>
+<div class="p-space-md pt-0 space-y-space-sm">
+<div class="border-t border-surface-container-high pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$108.000</span>
+<div class="font-price-display text-price-display text-on-surface leading-tight">$84.500</div>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Balde de 20 litros directo</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<a class="inline-flex items-center justify-center py-space-xs bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Quiero%20Látex%2020L%20Antihongo">
+                Comprar
+              </a>
+<a class="inline-flex items-center justify-center py-space-xs bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md uppercase rounded transition-colors text-center" href="https://wa.me/549341777777?text=Consulta%20Látex%2020L%20Antihongo">
+                WhatsApp
+              </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. CONSULTAS Y PRESUPUESTOS (WHATSAPP FAST QUOTATION BOX) -->
+<section class="w-full bg-surface-container-high py-space-xl px-gutter md:px-gutter-lg">
+<div class="max-w-4xl mx-auto bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden">
+<!-- Top Metallic Bar -->
+<div class="bg-primary-container text-on-primary px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-container text-[24px]">assignment</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider">Mostrador Virtual de Presupuestos</span>
+</div>
+<div class="inline-flex items-center gap-space-xs bg-primary px-space-sm py-space-xs rounded text-secondary-container font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Respuesta en menos de 15 minutos</span>
+</div>
+</div>
+<!-- Form Area -->
+<div class="p-space-lg md:p-space-xl space-y-space-lg">
+<div class="space-y-space-xs">
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">Solicitá tu Presupuesto al Instante</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            ¿Tenés la lista de materiales de tu arquitecto, albañil o cuadrilla? Pegala acá o enviala y nuestro equipo técnico de mostrador te cotiza con precios actualizados de gremio.
+          </p>
+</div>
+<form class="space-y-space-md" id="presupuestoForm" onsubmit="event.preventDefault(); sendToWhatsApp();">
+<div>
+<label class="block font-label-md text-label-md uppercase text-on-surface mb-space-xs">
+              Tipo de Operación / Perfil:
+            </label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<label class="flex items-center gap-space-xs p-space-sm rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="w-4 h-4 text-primary" name="perfil" type="radio" value="Particular / Refacción"/>
+<span class="font-label-md text-label-md text-on-surface">Particular / Hogar</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input class="w-4 h-4 text-primary" name="perfil" type="radio" value="Profesional / Contratista"/>
+<span class="font-label-md text-label-md text-on-surface">Profesional / Obra</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input class="w-4 h-4 text-primary" name="perfil" type="radio" value="Empresa / Constructora"/>
+<span class="font-label-md text-label-md text-on-surface">Empresa Constructora</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md uppercase text-on-surface mb-space-xs" for="materialList">
+              Detalle de Materiales o Cantidades:
+            </label>
+<textarea class="w-full p-space-md bg-surface-container-lowest text-on-surface rounded font-body-md text-body-md placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary" id="materialList" placeholder="Ej: 10 bolsas de cemento Loma Negra, 2 impermeabilizantes rojos 20L, 5 barras de hierro del 10, 1 amoladora..." rows="4"></textarea>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+<span>Cotización oficial con validez por 48 horas.</span>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-space-md bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all" type="submit">
+<span class="material-symbols-outlined text-[22px]">send</span>
+<span>Enviar y Cotizar por WhatsApp</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- 5. UBICACIÓN Y CONTACTO -->
+<section class="w-full bg-background py-space-xl px-gutter md:px-gutter-lg">
+<div class="max-w-7xl mx-auto space-y-space-lg">
+<div class="space-y-space-xs">
+<div class="font-label-badge text-label-badge uppercase tracking-widest text-secondary font-bold">
+          Eje Logístico &amp; Retiro en Sucursal
+        </div>
+<h2 class="font-headline-xl text-headline-xl uppercase text-on-surface">Ubicación y Atención Comercial</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Interactive Map Visual Box -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between">
+<div class="w-full h-80 bg-cover bg-center relative flex items-end p-space-md" data-location="Ruta Provincial 26S km 2, Santa Fe, Argentina" style="">
+<div class="absolute inset-0 bg-primary-container/20"></div>
+<div class="relative z-10 bg-surface-container-lowest/95 backdrop-blur p-space-md rounded shadow-md flex items-center justify-between w-full">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-primary text-secondary-container flex items-center justify-center font-bold">
+                  26S
+                </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface uppercase">Ruta Provincial 26S km 2</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Acceso directo asfaltado para camiones y acoplados</div>
+</div>
+</div>
+<a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-space-xs bg-primary-container hover:bg-primary text-on-primary font-label-badge text-label-badge uppercase rounded transition-colors" href="https://maps.google.com/?q=Ruta+Provincial+26S+km+2" target="_blank">
+<span>Cómo llegar</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_parking</span>
+<span>Playa de estacionamiento libre para camionetas y trailers</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px]">forklift</span>
+<span>Grúa y autoelevador de carga pesada</span>
+</div>
+</div>
+</div>
+<!-- Contact Cards Panel -->
+<div class="lg:col-span-5 space-y-space-md">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm space-y-space-md">
+<h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Datos de Contacto Directo</h3>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">place</span>
+<div>
+<strong class="font-label-md text-label-md uppercase text-on-surface block">Dirección de mostrador</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Ruta Provincial 26S km 2 (Frente al corredor industrial logístico)</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">call</span>
+<div>
+<strong class="font-label-md text-label-md uppercase text-on-surface block">Línea de Mostrador</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">341-777777 (Llamadas y presupuestos directos)</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">chat</span>
+<div>
+<strong class="font-label-md text-label-md uppercase text-on-surface block">WhatsApp Gremio y Obras</strong>
+<a class="font-label-md text-label-md text-secondary hover:underline" href="https://wa.me/549341777777">+54 9 341 777777</a>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">schedule</span>
+<div>
+<strong class="font-label-md text-label-md uppercase text-on-surface block">Horario de Atención</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Lunes a Viernes: 07:30 a 18:30 hs (Horario corrido)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Sábados: 08:00 a 13:00 hs</p>
+</div>
+</div>
+</div>
+<!-- Direct Quick Call Button -->
+<a class="w-full inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg uppercase rounded shadow transition-all" href="tel:341777777">
+<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+<span>Llamar al Mostrador (341-777777)</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. PIE DE PÁGINA ESPECÍFICO (COMPLEMENTARY TO APP SHELL) -->
+<section class="w-full bg-primary text-on-primary py-space-lg px-gutter md:px-gutter-lg border-t border-primary-container">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md flex-wrap text-center md:text-left">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary-container">Razón Social: Ferretería H S.R.L.</span>
+<span class="text-on-primary-container">•</span>
+<span class="font-label-badge text-label-badge uppercase text-on-primary-container">CUIT: 30-71829304-8</span>
+<span class="text-on-primary-container">•</span>
+<span class="font-label-badge text-label-badge uppercase text-on-primary-container">Ingresos Brutos Convenio Multilateral</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-badge text-label-badge uppercase text-on-primary-container">Medios Aceptados:</span>
+<div class="flex items-center gap-space-xs font-label-badge text-label-badge bg-primary-container px-space-sm py-space-xs rounded text-on-primary">
+<span>VISA</span>
+<span>•</span>
+<span>MASTER</span>
+<span>•</span>
+<span>TRANSFERENCIA 3.0</span>
+<span>•</span>
+<span>EFECTIVO</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Inline Script for WhatsApp Quotation Builder -->
+<script>
+    function sendToWhatsApp() {
+      const perfilElement = document.querySelector('input[name="perfil"]:checked');
+      const perfil = perfilElement ? perfilElement.value : 'Cliente';
+      const materials = document.getElementById('materialList').value.trim();
+      
+      let message = `Hola Ferretería H! Vengo desde la web para solicitar un presupuesto.%0A%0A`;
+      message += `*Perfil:* ${encodeURIComponent(perfil)}%0A`;
+      if (materials) {
+        message += `*Lista de Materiales:*%0A${encodeURIComponent(materials)}%0A`;
+      } else {
+        message += `*Solicito asesoramiento para compra de materiales.*%0A`;
+      }
+      message += `%0A¿Me podrían pasar cotización y disponibilidad en sucursal Ruta 26S? Muchas gracias.`;
+
+      const whatsappUrl = `https://wa.me/549341777777?text=${message}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</div></main><footer class="w-full bg-primary-container text-on-primary-container pt-space-xl pb-space-lg"><div class="w-full px-gutter-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg pb-space-xl"><div class="space-y-space-sm"><div class="flex items-center gap-space-sm"><img alt="Ferretería H Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VMK-hvBAG8XonE0OeGs4Prrp8SfwQA5ruQJyFCbJj4PHgDeXeNQgIOOnzZWIb5Wk1m7vVqMUAi0QfrvPkIoFDjLSblCMrNZ32PV2CDhcKMWX-PATNNk6opKOXBNXDi67oNxucoRkuWdh0cnXtWTDw0hREb9Yp8ZsMooA1X5OCN0KLjS6FHOmtnHhGCWZeoTGV3raR1F3h-0C4CK282XB7y2Yp3oY6ZiyxEbycgiAMDh9vJ_WhYdGOZzB4"/><span class="font-headline-sm text-headline-sm uppercase text-on-primary">Ferretería H</span></div><p class="font-body-sm text-body-sm text-on-primary-container">Suministros industriales, materiales para la construcción pesada y ferretería técnica sobre corredor productivo.</p></div><div class="space-y-space-xs"><h4 class="font-label-lg text-label-lg uppercase text-on-primary">Ubicación y Logística</h4><p class="font-body-sm text-body-sm">📍 Ruta Provincial 26S km 2</p><p class="font-body-sm text-body-sm">Acceso directo camiones y carga pesada</p><p class="font-body-sm text-body-sm">Playa de estacionamiento y descarga</p></div><div class="space-y-space-xs"><h4 class="font-label-lg text-label-lg uppercase text-on-primary">Contacto Directo</h4><p class="font-body-sm text-body-sm">📞 Ventas Mostrador: 341-777777</p><p class="font-body-sm text-body-sm">💬 Canal Gremio: WhatsApp Directo</p><p class="font-body-sm text-body-sm">✉️ presupuestos@ferreteriah.com.ar</p></div><div class="space-y-space-xs"><h4 class="font-label-lg text-label-lg uppercase text-on-primary">Horarios de Atención</h4><p class="font-body-sm text-body-sm">Lunes a Viernes: 07:30 a 18:30 hs (Corrido)</p><p class="font-body-sm text-body-sm">Sábados: 08:00 a 13:00 hs</p><p class="font-body-sm text-body-sm text-secondary-container font-label-md text-label-md">Despacho exprés a pie de obra</p></div></div><div class="w-full px-gutter-lg pt-space-md border-t border-primary flex flex-col md:flex-row items-center justify-between gap-space-sm"><p class="font-body-sm text-body-sm text-on-primary-container">© 2024 Ferretería H. Todos los derechos reservados. Suministros Industriales Ruta 26S.</p><div class="flex items-center gap-space-md font-label-md text-label-md text-on-primary-container"><span class="hover:text-on-primary transition-colors cursor-pointer">Condiciones Comerciales</span><span class="hover:text-on-primary transition-colors cursor-pointer">Cuentas Corrientes</span><span class="hover:text-on-primary transition-colors cursor-pointer">Seguridad Industrial</span></div></div></footer></body></html>

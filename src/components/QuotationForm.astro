@@ -1,0 +1,106 @@
+---
+import { tienda } from '../data/tienda';
+---
+
+<section class="w-full bg-surface-container-high py-12 md:py-20 px-4 md:px-8 border-y border-outline-variant/30" id="presupuestos">
+  <div class="max-w-4xl mx-auto bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden border-2 border-primary-container">
+    <!-- Top Metallic Bar -->
+    <div class="bg-primary-container text-on-primary px-6 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-primary">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-secondary-container text-[24px]">assignment</span>
+        <span class="font-label-lg text-label-lg uppercase tracking-wider font-bold">
+          Mostrador Virtual de Presupuestos
+        </span>
+      </div>
+      <div class="inline-flex items-center gap-1.5 bg-primary px-3 py-1 rounded text-secondary-container font-label-badge text-label-badge font-bold">
+        <span class="material-symbols-outlined text-[14px]">schedule</span>
+        <span>Respuesta en menos de 15 minutos</span>
+      </div>
+    </div>
+
+    <!-- Form Area -->
+    <div class="p-6 md:p-10 space-y-6">
+      <div class="space-y-2">
+        <h2 class="font-headline-lg text-2xl sm:text-3xl uppercase text-on-surface font-extrabold">
+          Solicitá tu Presupuesto al Instante
+        </h2>
+        <p class="font-body-md text-base text-on-surface-variant leading-relaxed">
+          ¿Tenés la lista de materiales de tu arquitecto, albañil o cuadrilla? Pegala acá y nuestro equipo técnico de mostrador te cotiza con precios actualizados de gremio.
+        </p>
+      </div>
+
+      <form class="space-y-6" id="presupuestoForm">
+        <div>
+          <label class="block font-label-md text-label-md uppercase text-on-surface mb-2 font-bold tracking-wider">
+            Tipo de Operación / Perfil:
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <label class="flex items-center gap-2 p-3 rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors border border-outline-variant/30">
+              <input checked class="w-4 h-4 text-primary accent-primary" name="perfil" type="radio" value="Particular / Refacción" />
+              <span class="font-label-md text-label-md text-on-surface font-bold">Particular / Hogar</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors border border-outline-variant/30">
+              <input class="w-4 h-4 text-primary accent-primary" name="perfil" type="radio" value="Profesional / Contratista" />
+              <span class="font-label-md text-label-md text-on-surface font-bold">Profesional / Obra</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors border border-outline-variant/30">
+              <input class="w-4 h-4 text-primary accent-primary" name="perfil" type="radio" value="Empresa / Constructora" />
+              <span class="font-label-md text-label-md text-on-surface font-bold">Empresa Constructora</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-label-md text-label-md uppercase text-on-surface mb-2 font-bold tracking-wider" for="materialList">
+            Detalle de Materiales o Cantidades:
+          </label>
+          <textarea
+            class="w-full p-4 bg-surface-container-lowest text-on-surface rounded font-body-md text-base placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary border border-outline-variant/50 shadow-inner"
+            id="materialList"
+            placeholder="Ej: 10 bolsas de cemento Loma Negra, 2 impermeabilizantes rojos 20L, 5 barras de hierro del 10, 1 amoladora..."
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
+          <div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-sm">
+            <span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+            <span>Cotización oficial con validez por 48 horas.</span>
+          </div>
+
+          <button
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all font-bold text-center cursor-pointer"
+            type="submit"
+          >
+            <span class="material-symbols-outlined text-[22px]">send</span>
+            <span>Enviar y Cotizar por WhatsApp</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ whatsappPhone: tienda.negocio.whatsappInternacional, nombreNegocio: tienda.negocio.nombre }}>
+  const form = document.getElementById('presupuestoForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const perfilElement = document.querySelector('input[name="perfil"]:checked');
+      const perfil = perfilElement ? perfilElement.value : 'Cliente';
+      const materials = document.getElementById('materialList')?.value.trim() || '';
+
+      let message = `Hola ${nombreNegocio}! Vengo desde el sitio web para solicitar un presupuesto.\n\n`;
+      message += `*Perfil:* ${perfil}\n`;
+      if (materials) {
+        message += `*Lista de Materiales:* \n${materials}\n`;
+      } else {
+        message += `*Solicito asesoramiento para compra de materiales.*\n`;
+      }
+      message += `\n¿Me podrían cotizar precios y confirmar disponibilidad en sucursal? Muchas gracias.`;
+
+      const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    });
+  }
+</script>

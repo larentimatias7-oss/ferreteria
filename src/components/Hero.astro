@@ -1,0 +1,99 @@
+---
+import { tienda, buildWhatsAppUrl } from '../data/tienda';
+
+const heroWaUrl = buildWhatsAppUrl(
+  tienda.negocio.whatsappInternacional,
+  `Hola ${tienda.negocio.nombre}, quisiera consultar stock disponible y lista de precios.`
+);
+---
+
+<section class="relative w-full bg-primary-container text-on-primary py-12 md:py-20 px-4 md:px-8 overflow-hidden border-b border-primary">
+  <!-- Industrial Grid Background Texture -->
+  <div
+    class="absolute inset-0 opacity-10 pointer-events-none"
+    style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 32px 32px;"
+  ></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center relative z-10">
+    <div class="lg:col-span-7 flex flex-col items-start space-y-5">
+      <!-- Trust badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-primary text-secondary-container font-label-md text-label-md uppercase tracking-wider shadow-sm border border-secondary-container/20">
+        <span class="material-symbols-outlined text-[18px]">bolt</span>
+        <span>Atención Inmediata por WhatsApp</span>
+      </div>
+
+      <h1 class="font-headline-xl text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-on-primary leading-tight font-extrabold">
+        Materiales, Pinturas y Herramientas para Hogar y Obra
+      </h1>
+
+      <p class="font-body-lg text-base md:text-lg text-on-primary-container max-w-2xl leading-relaxed">
+        Encontranos sobre <strong class="text-on-primary underline decoration-secondary-container underline-offset-4">{tienda.negocio.direccion}</strong>. Stock permanente, acopio asegurado y despacho directo para particulares, profesionales y empresas constructoras.
+      </p>
+
+      <!-- CTA Action Cluster -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
+        <a
+          href="#ofertas"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all text-center font-bold"
+        >
+          <span class="material-symbols-outlined text-[20px]">local_offer</span>
+          <span>Ver Ofertas de la Semana</span>
+        </a>
+
+        <a
+          href={heroWaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all text-center font-bold"
+        >
+          <span class="material-symbols-outlined text-[20px] text-secondary">forum</span>
+          <span>Consultar Stock Ahora</span>
+        </a>
+      </div>
+
+      <!-- Quick Specs Banner -->
+      <div class="grid grid-cols-3 gap-3 pt-6 border-t border-primary/60 w-full">
+        <div class="bg-primary/40 p-2.5 rounded border border-primary-fixed-dim/10">
+          <div class="font-label-badge text-label-badge text-on-primary-container uppercase">Despacho</div>
+          <div class="font-label-md text-label-md text-on-primary font-bold">En el día</div>
+        </div>
+        <div class="bg-primary/40 p-2.5 rounded border border-primary-fixed-dim/10">
+          <div class="font-label-badge text-label-badge text-on-primary-container uppercase">Acopio</div>
+          <div class="font-label-md text-label-md text-on-primary font-bold">Sin cargo x 90d</div>
+        </div>
+        <div class="bg-primary/40 p-2.5 rounded border border-primary-fixed-dim/10">
+          <div class="font-label-badge text-label-badge text-on-primary-container uppercase">Mostrador</div>
+          <div class="font-label-md text-label-md text-on-primary font-bold">Retiro exprés</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Visual Accent -->
+    <div class="lg:col-span-5 relative flex justify-center">
+      <div class="relative w-full max-w-md bg-primary p-3 rounded-xl shadow-2xl border-2 border-primary-fixed-dim/20">
+        <div class="overflow-hidden rounded-lg aspect-square relative bg-primary-container">
+          <img
+            src={tienda.productoDestacado.imagen}
+            alt={tienda.productoDestacado.nombre}
+            fetchpriority="high"
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute top-3 left-3 bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-2.5 py-1 rounded shadow font-bold tracking-wider uppercase">
+            DESTACADO DE OBRA
+          </div>
+        </div>
+        <div class="p-4 bg-primary-container rounded-b-lg mt-2 flex items-center justify-between border border-primary">
+          <div>
+            <span class="font-label-badge text-label-badge text-secondary-container uppercase block tracking-wider">
+              Disponibilidad en Playa
+            </span>
+            <span class="font-headline-sm text-headline-sm text-on-primary font-bold">
+              Retiro directo en Ruta 26S
+            </span>
+          </div>
+          <span class="material-symbols-outlined text-secondary-container text-[28px]">forklift</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

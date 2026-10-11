@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TrustPillars from '../components/TrustPillars.astro';
+import CatalogGrid from '../components/CatalogGrid.astro';
+import QuotationForm from '../components/QuotationForm.astro';
+import LocationSection from '../components/LocationSection.astro';
+import Footer from '../components/Footer.astro';
+import MobileFloatingBar from '../components/MobileFloatingBar.astro';
+---
+
+<Layout>
+  <!-- Encabezado fijo -->
+  <Header />
+
+  <!-- Contenido principal -->
+  <main class="w-full pt-20">
+    <!-- 1. Portada Hero Industrial -->
+    <Hero />
+
+    <!-- 2. Franja de Confianza (4 Pilares) -->
+    <TrustPillars />
+
+    <!-- 3. Ofertas de la Semana (Destacado Sherwin 20L + Catálogo) -->
+    <CatalogGrid />
+
+    <!-- 4. Mostrador Virtual de Presupuestos (WhatsApp) -->
+    <QuotationForm />
+
+    <!-- 5. Ubicación, Acceso Camiones y Horarios (Google Maps) -->
+    <LocationSection />
+  </main>
+
+  <!-- Pie de página técnico y comercial -->
+  <Footer />
+
+  <!-- Barra fija inferior para móviles (390px) -->
+  <MobileFloatingBar />
+</Layout>

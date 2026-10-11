@@ -1,0 +1,46 @@
+---
+import { tienda } from '../data/tienda';
+import FeaturedProduct from './FeaturedProduct.astro';
+import ProductCard from './ProductCard.astro';
+---
+
+<section class="w-full bg-background py-12 md:py-20 px-4 md:px-8" id="ofertas">
+  <div class="max-w-7xl mx-auto space-y-10 md:space-y-14">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-primary-container pb-6">
+      <div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-badge text-label-badge uppercase tracking-widest mb-2 font-bold">
+          <span class="material-symbols-outlined text-[16px]">sell</span>
+          <span>Precios Especiales por Tiempo Limitado</span>
+        </div>
+        <h2 class="font-headline-xl text-3xl sm:text-4xl uppercase text-on-surface tracking-tight font-extrabold">
+          Ofertas de la Semana
+        </h2>
+      </div>
+      <p class="font-body-md text-base text-on-surface-variant max-w-md">
+        Precios con IVA incluido para compras minoristas y por volumen. Stock directo en sucursal {tienda.negocio.direccion}.
+      </p>
+    </div>
+
+    <!-- PRODUCTO ESTRELLA (Featured Hero Product Card) -->
+    <FeaturedProduct />
+
+    <!-- CATÁLOGO DE OFERTAS ADICIONALES -->
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-headline-sm text-lg uppercase text-on-surface font-bold tracking-tight">
+          Más Productos y Ofertas de Obra
+        </h3>
+        <span class="font-label-badge text-label-badge uppercase text-secondary font-bold">
+          Entrega Inmediata
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {tienda.catalogo.map((prod) => (
+          <ProductCard producto={prod} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

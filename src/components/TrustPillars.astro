@@ -1,0 +1,55 @@
+---
+const pillars = [
+  {
+    icon: 'local_shipping',
+    title: 'Entrega en Zona',
+    description: 'Despacho ágil en obras de toda la región y retiro inmediato en mostrador sin demoras.',
+    tag: 'Logística Pesada',
+  },
+  {
+    icon: 'engineering',
+    title: 'Atención Experta',
+    description: 'Asesoramiento técnico en obra civil, membranas líquidas, pinturas e impermeabilizaciones.',
+    tag: 'Personal Capacitado',
+  },
+  {
+    icon: 'credit_card',
+    title: 'Medios de Pago',
+    description: 'Efectivo en mostrador, transferencias inmediatas, tarjetas de débito y crédito con cuotas.',
+    tag: 'Facturación A y B',
+  },
+  {
+    icon: 'receipt_long',
+    title: 'Cotización Rápida',
+    description: 'Envianos tu lista de materiales en foto o texto y te pasamos el presupuesto al instante.',
+    tag: 'Respuesta < 15 min',
+  },
+];
+---
+
+<section class="w-full bg-surface-container-low py-10 md:py-14 px-4 md:px-8 border-b border-surface-container">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      {
+        pillars.map((item) => (
+          <div class="bg-surface-container-lowest p-6 rounded shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between border border-outline-variant/30">
+            <div class="space-y-3">
+              <div class="w-12 h-12 rounded bg-primary-container text-secondary-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-[28px]">{item.icon}</span>
+              </div>
+              <h2 class="font-headline-sm text-headline-sm text-on-surface uppercase font-bold">
+                {item.title}
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+            <span class="inline-block mt-4 font-label-badge text-label-badge uppercase tracking-wider text-secondary font-bold">
+              {item.tag}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
