@@ -48,3 +48,17 @@ html, body {
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0.75rem);
 }
+
+/* Ocultar badge y drawer inyectado de Netlify */
+#netlify-badge,
+.netlify-badge,
+[data-netlify-deploy-preview],
+#netlify-deploy-preview-container,
+iframe#netlify-preview-drawer,
+div[class*="netlify-badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
