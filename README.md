@@ -1,6 +1,6 @@
-# Ferretería H — Sitio Web Oficial
+# H-Ferretería — Sitio Web Oficial
 
-Sitio web estático para **Ferretería H** (Ruta Provincial 26S km 2), desarrollado con **Astro**, **Tailwind CSS** y **TypeScript**, optimizado para despliegue continuo en **Netlify**.
+Sitio web oficial para **H-Ferretería** (Ana de Manguiaterra 45, Andino - Santa Fe), desarrollado con **Astro**, **Tailwind CSS** y **TypeScript**, optimizado para despliegue continuo en **Netlify**.
 
 ## 🛠️ Tecnologías
 
