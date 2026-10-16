@@ -40,9 +40,9 @@ const cleanPhone = tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '');
           ></iframe>
 
           <!-- Floating Pin Badge -->
-          <div class="absolute top-3 left-3 bg-slate-900/90 text-white backdrop-blur px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2 border border-white/20 text-xs">
+          <div class="absolute top-3 left-3 bg-slate-900/95 text-white backdrop-blur px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2 border border-white/20 text-xs">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-bold">{tienda.negocio.nombre} • {tienda.negocio.direccion}</span>
+            <span class="font-bold">{tienda.negocio.nombre} • Cerca de Construcciones Harriet</span>
           </div>
         </div>
 
@@ -56,8 +56,8 @@ const cleanPhone = tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '');
               <div class="font-headline-sm text-sm uppercase text-on-surface font-extrabold">
                 {tienda.negocio.direccionCompleta}
               </div>
-              <div class="font-body-sm text-xs text-on-surface-variant">
-                Pueblo Andino, Departamento Iriondo, Santa Fe
+              <div class="font-body-sm text-xs text-on-surface-variant font-medium">
+                📍 Cerca de Construcciones Harriet (Pueblo Andino, Santa Fe)
               </div>
             </div>
           </div>
@@ -110,6 +110,9 @@ const cleanPhone = tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '');
                 </strong>
                 <p class="font-body-md text-sm text-on-surface font-semibold">
                   {tienda.negocio.direccion}
+                </p>
+                <p class="font-body-sm text-xs text-secondary font-bold">
+                  Cerca de Construcciones Harriet (Referencia principal)
                 </p>
                 <p class="font-body-sm text-xs text-on-surface-variant">
                   Andino - Santa Fe (CP S2214)
