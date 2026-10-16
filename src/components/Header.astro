@@ -1,45 +1,35 @@
 ---
 import { tienda, buildWhatsAppUrl } from '../data/tienda';
+import Logo from './Logo.astro';
 
 const whatsappUrl = buildWhatsAppUrl(
   tienda.negocio.whatsappInternacional,
-  `Hola ${tienda.negocio.nombre}, quisiera consultar stock y precios disponibles.`
+  `Hola ${tienda.negocio.nombre}, quisiera consultar stock y precios de las ofertas de Gran Apertura.`
 );
+const cleanPhone = tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '');
 ---
 
-<header class="fixed top-0 left-0 w-full z-50 bg-primary-container shadow-[0_2px_10px_rgba(0,0,0,0.3)] border-b border-primary">
+<header class="fixed top-0 left-0 w-full z-50 bg-primary shadow-[0_2px_12px_rgba(0,0,0,0.4)] border-b border-primary-container">
   <div class="h-20 max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-4">
-    <!-- Brand / Logo -->
-    <a href="/" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded bg-primary flex items-center justify-center border border-secondary-container/40 group-hover:border-secondary-container transition-colors">
-        <svg class="w-6 h-6 text-secondary-container" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M5 4h3v6h8V4h3v16h-3v-7H8v7H5V4z"/>
-        </svg>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-primary font-bold">
-          {tienda.negocio.nombre}
-        </span>
-        <span class="font-label-badge text-label-badge text-secondary-container uppercase tracking-wider hidden sm:inline">
-          Suministros Industriales
-        </span>
-      </div>
+    <!-- Brand / Real Logo -->
+    <a href="/" class="flex items-center group py-2" aria-label="H-Ferretería">
+      <Logo variant="compact" theme="dark" class="h-10 sm:h-11" />
     </a>
 
     <!-- Contact Info (Desktop) -->
     <div class="hidden xl:flex items-center gap-4">
       <a
         href="#ubicacion"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-primary text-secondary-container font-label-md text-label-md hover:bg-primary/80 transition-colors"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-primary-container text-secondary-container font-label-md text-label-md hover:bg-slate-800 transition-colors border border-secondary-container/20"
       >
-        <span class="material-symbols-outlined text-[16px]">location_on</span>
-        <span>{tienda.negocio.direccion}</span>
+        <span class="material-symbols-outlined text-[16px] text-secondary-container">location_on</span>
+        <span>{tienda.negocio.direccion}, Andino</span>
       </a>
       <a
-        href={`tel:${tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '')}`}
-        class="inline-flex items-center gap-1.5 font-label-md text-label-md text-on-primary-container hover:text-on-primary transition-colors"
+        href={`tel:${cleanPhone}`}
+        class="inline-flex items-center gap-1.5 font-label-md text-label-md text-slate-300 hover:text-white transition-colors"
       >
-        <span class="material-symbols-outlined text-[16px]">call</span>
+        <span class="material-symbols-outlined text-[16px] text-secondary-container">call</span>
         <span>{tienda.negocio.telefonoLlamadas}</span>
       </a>
     </div>
@@ -47,35 +37,41 @@ const whatsappUrl = buildWhatsAppUrl(
     <!-- Navigation Anchors -->
     <nav class="hidden md:flex items-center gap-1">
       <a
-        href="#ofertas"
-        class="px-3 py-2 font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container hover:bg-primary hover:text-on-primary rounded transition-colors"
+        href="#ofertas-apertura"
+        class="px-3 py-2 font-label-lg text-label-lg uppercase tracking-wider text-secondary-container hover:bg-white/10 rounded transition-colors font-bold"
       >
-        Ofertas
+        ★ Gran Apertura
+      </a>
+      <a
+        href="#catalogo"
+        class="px-3 py-2 font-label-lg text-label-lg uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 rounded transition-colors"
+      >
+        Catálogo
       </a>
       <a
         href="#presupuestos"
-        class="px-3 py-2 font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container hover:bg-primary hover:text-on-primary rounded transition-colors"
+        class="px-3 py-2 font-label-lg text-label-lg uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 rounded transition-colors"
       >
         Presupuestos
       </a>
       <a
         href="#ubicacion"
-        class="px-3 py-2 font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container hover:bg-primary hover:text-on-primary rounded transition-colors"
+        class="px-3 py-2 font-label-lg text-label-lg uppercase tracking-wider text-slate-300 hover:text-white hover:bg-white/10 rounded transition-colors"
       >
         Ubicación
       </a>
     </nav>
 
     <!-- Header Direct CTA -->
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2">
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2.5 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_2px_0px_#121519] active:translate-y-0.5 transition-all text-sm font-bold"
+        class="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-label-lg text-label-lg uppercase rounded shadow-md active:translate-y-0.5 transition-all text-sm font-bold"
       >
         <span class="material-symbols-outlined text-[18px]">chat</span>
-        <span class="hidden sm:inline">WhatsApp Directo</span>
+        <span class="hidden sm:inline">WhatsApp Pedidos</span>
         <span class="sm:hidden">WhatsApp</span>
       </a>
     </div>

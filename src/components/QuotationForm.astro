@@ -95,9 +95,9 @@ import { tienda } from '../data/tienda';
       if (materials) {
         message += `*Lista de Materiales:* \n${materials}\n`;
       } else {
-        message += `*Solicito asesoramiento para compra de materiales.*\n`;
+        message += `*Solicito asesoramiento para compra de materiales en sucursal Andino.*\n`;
       }
-      message += `\n¿Me podrían cotizar precios y confirmar disponibilidad en sucursal? Muchas gracias.`;
+      message += `\n¿Me podrían cotizar precios y confirmar disponibilidad en sucursal Andino (Ana de Manguiaterra 45)? Muchas gracias.`;
 
       const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');

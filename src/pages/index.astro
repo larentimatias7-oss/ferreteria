@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import OpeningCombos from '../components/OpeningCombos.astro';
 import TrustPillars from '../components/TrustPillars.astro';
 import CatalogGrid from '../components/CatalogGrid.astro';
 import QuotationForm from '../components/QuotationForm.astro';
@@ -11,30 +12,33 @@ import MobileFloatingBar from '../components/MobileFloatingBar.astro';
 ---
 
 <Layout>
-  <!-- Encabezado fijo -->
+  <!-- Encabezado fijo con logo oficial -->
   <Header />
 
   <!-- Contenido principal -->
   <main class="w-full pt-20">
-    <!-- 1. Portada Hero Industrial -->
+    <!-- 1. Portada Hero Gran Apertura con Logo Completo y Lema -->
     <Hero />
 
-    <!-- 2. Franja de Confianza (4 Pilares) -->
+    <!-- 2. Combos Oficiales de Gran Apertura (5 Ofertas Reales del Folleto) -->
+    <OpeningCombos />
+
+    <!-- 3. Los 4 Pilares de Confianza de la Marca (Marcas, Precios, Medios de Pago, Asesoramiento) -->
     <TrustPillars />
 
-    <!-- 3. Ofertas de la Semana (Destacado Sherwin 20L + Catálogo) -->
+    <!-- 4. Catálogo Destacado de Obra -->
     <CatalogGrid />
 
-    <!-- 4. Mostrador Virtual de Presupuestos (WhatsApp) -->
+    <!-- 5. Mostrador Virtual de Presupuestos (WhatsApp Directo) -->
     <QuotationForm />
 
-    <!-- 5. Ubicación, Acceso Camiones y Horarios (Google Maps) -->
+    <!-- 6. Ubicación Real: Ana de Manguiaterra 45, Andino - Santa Fe -->
     <LocationSection />
   </main>
 
-  <!-- Pie de página técnico y comercial -->
+  <!-- Pie de página con datos reales y logo oficial -->
   <Footer />
 
-  <!-- Barra fija inferior para móviles (390px) -->
+  <!-- Barra fija inferior para móviles -->
   <MobileFloatingBar />
 </Layout>

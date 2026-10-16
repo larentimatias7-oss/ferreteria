@@ -3,160 +3,185 @@ import { tienda, buildWhatsAppUrl } from '../data/tienda';
 
 const waUbicacionUrl = buildWhatsAppUrl(
   tienda.negocio.whatsappInternacional,
-  `Hola ${tienda.negocio.nombre}, necesito coordinar retiro / entrega de materiales en ${tienda.negocio.direccion}.`
+  `Hola ${tienda.negocio.nombre}, necesito consultar cómo llegar o coordinar retiro/entrega de materiales en ${tienda.negocio.direccionCompleta}.`
 );
+const cleanPhone = tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '');
 ---
 
-<section class="w-full bg-background py-12 md:py-20 px-4 md:px-8" id="ubicacion">
+<section class="w-full bg-background py-14 md:py-20 px-4 md:px-8 border-b border-outline-variant/30" id="ubicacion">
   <div class="max-w-7xl mx-auto space-y-8">
     <div class="space-y-2">
       <div class="font-label-badge text-label-badge uppercase tracking-widest text-secondary font-bold">
-        Eje Logístico &amp; Retiro en Sucursal
+        Ubicación Estratégica en Andino
       </div>
       <h2 class="font-headline-xl text-3xl sm:text-4xl uppercase text-on-surface font-extrabold">
-        Ubicación y Atención Comercial
+        Dónde Encontrarnos y Cómo Llegar
       </h2>
+      <p class="text-on-surface-variant max-w-2xl text-base">
+        Visitanos en nuestro salón de ventas en Pueblo Andino. Estacionamiento propio y carga directa para autos, camionetas y trailers.
+      </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <!-- Interactive Map Visual Box -->
-      <div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-outline-variant/40">
-        <!-- Map header graphic / photo container -->
-        <div class="w-full h-80 relative flex items-end p-4 md:p-6 bg-gradient-to-br from-primary-container via-slate-800 to-primary">
-          <!-- Geometric Blueprint Graphic Overlay -->
-          <div
-            class="absolute inset-0 opacity-20 pointer-events-none"
-            style="background-image: linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 24px 24px;"
-          ></div>
+      <!-- Interactive Map / Location Box -->
+      <div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl shadow-md overflow-hidden flex flex-col justify-between border border-outline-variant/40">
+        <!-- Google Maps Embed -->
+        <div class="w-full h-80 sm:h-96 relative bg-slate-100 overflow-hidden">
+          <iframe
+            src={tienda.negocio.googleMapsEmbed}
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`Mapa de ubicación ${tienda.negocio.nombre} en ${tienda.negocio.direccionCompleta}`}
+            class="w-full h-full"
+          ></iframe>
 
-          <div class="relative z-10 bg-surface-container-lowest/95 backdrop-blur p-4 rounded shadow-lg flex items-center justify-between w-full border border-outline-variant/40">
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded bg-primary text-secondary-container flex items-center justify-center font-extrabold text-lg border border-secondary-container/40">
-                26S
-              </div>
-              <div>
-                <div class="font-label-md text-label-md text-on-surface uppercase font-bold">
-                  {tienda.negocio.direccion}
-                </div>
-                <div class="font-body-sm text-body-sm text-on-surface-variant">
-                  Acceso directo asfaltado para camiones y acoplados
-                </div>
-              </div>
-            </div>
-
-            <a
-              class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-primary-container hover:bg-primary text-on-primary font-label-badge text-label-badge uppercase rounded transition-colors shadow font-bold"
-              href={tienda.negocio.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Cómo llegar</span>
-              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
-            </a>
+          <!-- Floating Pin Badge -->
+          <div class="absolute top-3 left-3 bg-slate-900/90 text-white backdrop-blur px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2 border border-white/20 text-xs">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-bold">{tienda.negocio.nombre} • {tienda.negocio.direccion}</span>
           </div>
         </div>
 
-        <!-- Facility Badges -->
-        <div class="p-4 bg-surface-container-low flex flex-wrap items-center justify-between gap-4 border-t border-outline-variant/30">
-          <div class="flex items-center gap-2 font-label-md text-label-md text-on-surface font-semibold">
-            <span class="material-symbols-outlined text-secondary text-[22px]">local_parking</span>
-            <span>Playa de estacionamiento libre para camionetas y trailers</span>
+        <!-- Address Bar Below Map -->
+        <div class="p-4 bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-outline-variant/30">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-primary text-secondary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[22px]">pin_drop</span>
+            </div>
+            <div>
+              <div class="font-headline-sm text-sm uppercase text-on-surface font-extrabold">
+                {tienda.negocio.direccionCompleta}
+              </div>
+              <div class="font-body-sm text-xs text-on-surface-variant">
+                Pueblo Andino, Departamento Iriondo, Santa Fe
+              </div>
+            </div>
           </div>
-          <div class="flex items-center gap-2 font-label-md text-label-md text-on-surface font-semibold">
-            <span class="material-symbols-outlined text-secondary text-[22px]">forklift</span>
-            <span>Grúa y autoelevador de carga pesada</span>
+
+          <a
+            class="inline-flex items-center gap-1.5 px-4 py-2 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-badge text-label-badge uppercase rounded transition-colors shadow font-bold text-xs shrink-0"
+            href={tienda.negocio.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Abrir en Google Maps</span>
+            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+          </a>
+        </div>
+
+        <!-- Facility Badges -->
+        <div class="p-4 bg-surface-container-lowest flex flex-wrap items-center justify-between gap-3 border-t border-outline-variant/30 text-xs">
+          <div class="flex items-center gap-1.5 font-semibold text-slate-700">
+            <span class="material-symbols-outlined text-secondary text-[20px]">local_parking</span>
+            <span>Estacionamiento y carga ágil</span>
+          </div>
+          <div class="flex items-center gap-1.5 font-semibold text-slate-700">
+            <span class="material-symbols-outlined text-emerald-600 text-[20px]">store</span>
+            <span>Salón de ventas y atención en mostrador</span>
           </div>
         </div>
       </div>
 
       <!-- Contact Information Cards Panel -->
       <div class="lg:col-span-5 space-y-4">
-        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-5 border border-outline-variant/40">
-          <h3 class="font-headline-sm text-xl uppercase text-on-surface font-bold">
-            Datos de Contacto Directo
-          </h3>
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-5 border border-outline-variant/40">
+          <div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+            <h3 class="font-headline-sm text-xl uppercase text-on-surface font-extrabold">
+              Datos Oficiales
+            </h3>
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2 py-0.5 rounded uppercase">
+              Abierto en Andino
+            </span>
+          </div>
 
           <div class="space-y-4">
-            <!-- Dirección -->
+            <!-- Dirección Real -->
             <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">place</span>
+              <div class="w-9 h-9 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-[20px] text-secondary">location_on</span>
+              </div>
               <div>
-                <strong class="font-label-md text-label-md uppercase text-on-surface block font-bold">
-                  Dirección de Mostrador
+                <strong class="font-label-md text-xs uppercase text-on-surface block font-bold">
+                  Dirección del Local
                 </strong>
-                <p class="font-body-md text-body-md text-on-surface-variant">
-                  {tienda.negocio.direccion} (Frente al corredor logístico)
+                <p class="font-body-md text-sm text-on-surface font-semibold">
+                  {tienda.negocio.direccion}
                 </p>
-                <a
-                  href={tienda.negocio.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 text-xs text-secondary hover:underline font-bold mt-1 uppercase"
-                >
-                  <span>Abrir en Google Maps</span>
-                  <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+                <p class="font-body-sm text-xs text-on-surface-variant">
+                  Andino - Santa Fe (CP S2214)
+                </p>
+              </div>
+            </div>
+
+            <!-- Teléfono Real -->
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-[20px] text-secondary">call</span>
+              </div>
+              <div>
+                <strong class="font-label-md text-xs uppercase text-on-surface block font-bold">
+                  Consultas y Pedidos
+                </strong>
+                <a href={`tel:${cleanPhone}`} class="font-headline-sm text-lg text-primary hover:text-secondary font-extrabold block">
+                  {tienda.negocio.telefonoLlamadas}
                 </a>
+                <span class="text-xs text-on-surface-variant">Llamadas telefónicas y línea comercial</span>
               </div>
             </div>
 
-            <!-- Teléfono -->
+            <!-- WhatsApp Real -->
             <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">call</span>
-              <div>
-                <strong class="font-label-md text-label-md uppercase text-on-surface block font-bold">
-                  Línea de Mostrador
-                </strong>
-                <p class="font-body-md text-body-md text-on-surface-variant">
-                  <a href={`tel:${tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '')}`} class="hover:underline font-semibold">
-                    {tienda.negocio.telefonoLlamadas}
-                  </a>
-                  (Llamadas y presupuestos directos)
-                </p>
+              <div class="w-9 h-9 rounded bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-[20px]">chat</span>
               </div>
-            </div>
-
-            <!-- WhatsApp -->
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">chat</span>
               <div>
-                <strong class="font-label-md text-label-md uppercase text-on-surface block font-bold">
-                  WhatsApp Gremio y Obras
+                <strong class="font-label-md text-xs uppercase text-on-surface block font-bold">
+                  Tomamos Pedidos por WhatsApp
                 </strong>
                 <a
-                  class="font-label-md text-label-md text-secondary hover:underline font-bold inline-block"
+                  class="font-headline-sm text-lg text-emerald-600 hover:text-emerald-700 font-extrabold block"
                   href={waUbicacionUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {tienda.negocio.whatsappDisplay}
                 </a>
+                <span class="text-xs text-on-surface-variant">Envianos fotos, planos o listas de materiales</span>
               </div>
             </div>
 
             <!-- Horarios -->
             <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">schedule</span>
+              <div class="w-9 h-9 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-[20px] text-secondary">schedule</span>
+              </div>
               <div>
-                <strong class="font-label-md text-label-md uppercase text-on-surface block font-bold">
-                  Horario de Atención
+                <strong class="font-label-md text-xs uppercase text-on-surface block font-bold">
+                  Horarios de Atención
                 </strong>
-                <p class="font-body-md text-body-md text-on-surface-variant">
+                <p class="font-body-sm text-xs text-on-surface-variant">
                   {tienda.negocio.horarioSemana}
                 </p>
-                <p class="font-body-md text-body-md text-on-surface-variant">
+                <p class="font-body-sm text-xs text-on-surface-variant">
                   {tienda.negocio.horarioSabado}
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Direct Quick Call Button -->
+          <!-- Direct Quick WhatsApp Button -->
           <a
-            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg uppercase rounded shadow-[0_3px_0px_#121519] active:translate-y-0.5 transition-all font-bold text-center border border-primary-fixed-dim/20"
-            href={`tel:${tienda.negocio.telefonoLlamadas.replace(/[^0-9]/g, '')}`}
+            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-label-lg text-label-lg uppercase rounded shadow active:translate-y-0.5 transition-all font-bold text-center"
+            href={waUbicacionUrl}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <span class="material-symbols-outlined text-[20px]">phone_in_talk</span>
-            <span>Llamar al Mostrador ({tienda.negocio.telefonoLlamadas})</span>
+            <span class="material-symbols-outlined text-[20px]">chat</span>
+            <span>Escribir al WhatsApp ({tienda.negocio.whatsappDisplay})</span>
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
 ---
 import { tienda, buildWhatsAppUrl } from '../data/tienda';
+import Logo from './Logo.astro';
 
 const waFooterUrl = buildWhatsAppUrl(
   tienda.negocio.whatsappInternacional,
@@ -10,119 +11,137 @@ const currentYear = new Date().getFullYear();
 ---
 
 <!-- Technical Data Ribbon -->
-<section class="w-full bg-primary text-on-primary py-6 px-4 md:px-8 border-t border-primary-container">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+<section class="w-full bg-primary text-white py-6 px-4 md:px-8 border-t border-primary-container">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs">
     <div class="flex items-center gap-3 flex-wrap justify-center md:justify-start">
       <span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary-container font-bold">
-        Razón Social: {tienda.negocio.razonSocial}
+        {tienda.negocio.nombre} • Pueblo Andino, Santa Fe
       </span>
-      <span class="text-on-primary-container hidden sm:inline">•</span>
-      <span class="font-label-badge text-label-badge uppercase text-on-primary-container">
-        CUIT: {tienda.negocio.cuit}
+      <span class="text-slate-500 hidden sm:inline">•</span>
+      <span class="font-label-badge text-label-badge uppercase text-slate-300">
+        Dirección: {tienda.negocio.direccion}
       </span>
-      <span class="text-on-primary-container hidden sm:inline">•</span>
-      <span class="font-label-badge text-label-badge uppercase text-on-primary-container">
-        Ingresos Brutos Convenio Multilateral
+      <span class="text-slate-500 hidden sm:inline">•</span>
+      <span class="font-label-badge text-label-badge uppercase text-slate-300">
+        Tel: {tienda.negocio.telefonoLlamadas}
       </span>
     </div>
 
     <div class="flex items-center gap-3 flex-wrap justify-center">
-      <span class="font-label-badge text-label-badge uppercase text-on-primary-container">
-        Medios Aceptados:
+      <span class="font-label-badge text-label-badge uppercase text-slate-400 font-bold">
+        Medios de Pago:
       </span>
-      <div class="flex items-center gap-2 font-label-badge text-label-badge bg-primary-container px-3 py-1.5 rounded text-on-primary border border-outline-variant/30">
-        <span>VISA</span>
-        <span>•</span>
-        <span>MASTER</span>
-        <span>•</span>
-        <span>TRANSFERENCIA 3.0</span>
-        <span>•</span>
+      <div class="flex items-center gap-2 font-label-badge text-label-badge bg-primary-container px-3 py-1.5 rounded text-white border border-white/10">
         <span>EFECTIVO</span>
+        <span>•</span>
+        <span>TRANSFERENCIA</span>
+        <span>•</span>
+        <span>DÉBITO</span>
+        <span>•</span>
+        <span>CRÉDITO</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Main Footer -->
-<footer class="w-full bg-primary-container text-on-primary-container pt-12 pb-8 border-t border-primary">
+<footer class="w-full bg-primary-container text-slate-300 pt-12 pb-8 border-t border-primary">
   <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12">
     <!-- Col 1: Brand Info -->
     <div class="space-y-4">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded bg-primary flex items-center justify-center border border-secondary-container/40">
-          <svg class="w-5 h-5 text-secondary-container" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M5 4h3v6h8V4h3v16h-3v-7H8v7H5V4z"/>
-          </svg>
-        </div>
-        <span class="font-headline-sm text-lg uppercase text-on-primary font-bold">
-          {tienda.negocio.nombre}
-        </span>
+      <div class="w-full max-w-[240px]">
+        <Logo variant="compact" theme="dark" showSlogan={false} class="h-10" />
       </div>
-      <p class="font-body-sm text-sm text-on-primary-container leading-relaxed">
-        Suministros industriales, materiales para la construcción pesada y ferretería técnica sobre corredor productivo.
+      <p class="font-headline-sm text-sm text-secondary-container font-bold italic">
+        "{tienda.negocio.lema}"
+      </p>
+      <p class="font-body-sm text-xs text-slate-400 leading-relaxed">
+        Materiales para la construcción, pinturas, impermeabilizantes, herramientas y ferretería general en Pueblo Andino, Santa Fe.
       </p>
     </div>
 
     <!-- Col 2: Location & Logistics -->
     <div class="space-y-3">
-      <h4 class="font-label-lg text-sm uppercase text-on-primary font-bold tracking-wider">
-        Ubicación y Logística
+      <h4 class="font-label-lg text-sm uppercase text-white font-bold tracking-wider">
+        Ubicación y Atención
       </h4>
-      <p class="font-body-sm text-sm text-on-primary-container">
-        📍 {tienda.negocio.direccion}
+      <p class="font-body-sm text-xs text-slate-300">
+        📍 <strong>{tienda.negocio.direccionCompleta}</strong>
       </p>
-      <p class="font-body-sm text-sm text-on-primary-container">
-        Acceso directo camiones y carga pesada
+      <p class="font-body-sm text-xs text-slate-400">
+        Pueblo Andino (CP S2214), Santa Fe
       </p>
-      <p class="font-body-sm text-sm text-on-primary-container">
-        Playa de estacionamiento y descarga
+      <p class="font-body-sm text-xs text-slate-400">
+        Estacionamiento propio y carga directa
       </p>
+      <a
+        href={tienda.negocio.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-xs text-secondary-container hover:underline font-bold mt-1 uppercase"
+      >
+        <span>Ver en Google Maps</span>
+        <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+      </a>
     </div>
 
     <!-- Col 3: Direct Contact -->
     <div class="space-y-3">
-      <h4 class="font-label-lg text-sm uppercase text-on-primary font-bold tracking-wider">
-        Contacto Directo
+      <h4 class="font-label-lg text-sm uppercase text-white font-bold tracking-wider">
+        Consultas y Pedidos
       </h4>
-      <p class="font-body-sm text-sm">
-        📞 <a href={`tel:${cleanPhone}`} class="hover:text-on-primary transition-colors">Ventas Mostrador: {tienda.negocio.telefonoLlamadas}</a>
+      <p class="font-body-sm text-xs">
+        📞 <a href={`tel:${cleanPhone}`} class="hover:text-white transition-colors">Teléfono: <strong>{tienda.negocio.telefonoLlamadas}</strong></a>
       </p>
-      <p class="font-body-sm text-sm">
-        💬 <a href={waFooterUrl} target="_blank" rel="noopener noreferrer" class="hover:text-on-primary transition-colors">Canal Gremio: WhatsApp Directo</a>
+      <p class="font-body-sm text-xs">
+        💬 <a href={waFooterUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors font-bold">WhatsApp: {tienda.negocio.whatsappDisplay}</a>
       </p>
-      <p class="font-body-sm text-sm">
-        ✉️ <a href={`mailto:${tienda.negocio.email}`} class="hover:text-on-primary transition-colors">{tienda.negocio.email}</a>
+      <p class="font-body-sm text-xs">
+        ✉️ <a href={`mailto:${tienda.negocio.email}`} class="hover:text-white transition-colors">{tienda.negocio.email}</a>
       </p>
+      <div class="pt-1">
+        <a
+          href={tienda.negocio.folletoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors"
+        >
+          <span class="material-symbols-outlined text-[16px] text-secondary-container">picture_as_pdf</span>
+          <span>Folleto de Apertura</span>
+        </a>
+      </div>
     </div>
 
     <!-- Col 4: Business Hours -->
     <div class="space-y-3">
-      <h4 class="font-label-lg text-sm uppercase text-on-primary font-bold tracking-wider">
+      <h4 class="font-label-lg text-sm uppercase text-white font-bold tracking-wider">
         Horarios de Atención
       </h4>
-      <p class="font-body-sm text-sm text-on-primary-container">
+      <p class="font-body-sm text-xs text-slate-300">
         {tienda.negocio.horarioSemana}
       </p>
-      <p class="font-body-sm text-sm text-on-primary-container">
+      <p class="font-body-sm text-xs text-slate-300">
         {tienda.negocio.horarioSabado}
       </p>
-      <span class="inline-block mt-2 font-label-badge text-label-badge text-secondary-container font-bold uppercase tracking-wider">
-        Despacho exprés a pie de obra
+      <span class="inline-block mt-2 font-label-badge text-label-badge text-emerald-400 font-bold uppercase tracking-wider bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-500/30">
+        ¡Vení a conocer la nueva sucursal!
       </span>
     </div>
   </div>
 
   <!-- Bottom bar -->
-  <div class="max-w-7xl mx-auto px-4 md:px-8 pt-6 border-t border-primary flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-    <p class="font-body-sm text-on-primary-container text-center md:text-left">
-      © {currentYear} {tienda.negocio.nombre}. Todos los derechos reservados. Suministros Industriales {tienda.negocio.direccion}.
+  <div class="max-w-7xl mx-auto px-4 md:px-8 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+    <p class="font-body-sm text-slate-400 text-center md:text-left">
+      © {currentYear} {tienda.negocio.nombre}. Todos los derechos reservados. {tienda.negocio.direccionCompleta}.
     </p>
-    <div class="flex items-center gap-4 font-label-md text-on-primary-container">
-      <a href="#presupuestos" class="hover:text-on-primary transition-colors">Presupuestos Rápidos</a>
+    <div class="flex items-center gap-4 font-label-md text-slate-400">
+      <a href="#ofertas-apertura" class="hover:text-white transition-colors">Promos Apertura</a>
       <span>•</span>
-      <a href="#ofertas" class="hover:text-on-primary transition-colors">Ofertas Semanales</a>
+      <a href="#catalogo" class="hover:text-white transition-colors">Catálogo</a>
       <span>•</span>
-      <a href="#ubicacion" class="hover:text-on-primary transition-colors">Cómo Llegar</a>
+      <a href="#presupuestos" class="hover:text-white transition-colors">Presupuestos</a>
+      <span>•</span>
+      <a href="#ubicacion" class="hover:text-white transition-colors">Cómo Llegar</a>
     </div>
   </div>
 </footer>

@@ -1,97 +1,120 @@
 ---
 import { tienda, buildWhatsAppUrl } from '../data/tienda';
+import Logo from './Logo.astro';
 
 const heroWaUrl = buildWhatsAppUrl(
   tienda.negocio.whatsappInternacional,
-  `Hola ${tienda.negocio.nombre}, quisiera consultar stock disponible y lista de precios.`
+  `Hola ${tienda.negocio.nombre}! Quisiera consultar precios de las ofertas de Gran Apertura y disponibilidad de materiales.`
 );
 ---
 
-<section class="relative w-full bg-primary-container text-on-primary py-12 md:py-20 px-4 md:px-8 overflow-hidden border-b border-primary">
-  <!-- Industrial Grid Background Texture -->
+<section class="relative w-full bg-primary text-white py-12 md:py-20 px-4 md:px-8 overflow-hidden border-b border-primary-container">
+  <!-- Industrial Pattern Background Texture -->
   <div
-    class="absolute inset-0 opacity-10 pointer-events-none"
-    style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 32px 32px;"
+    class="absolute inset-0 opacity-15 pointer-events-none"
+    style="background-image: radial-gradient(circle at 2px 2px, #ff6e00 1px, transparent 0); background-size: 32px 32px;"
   ></div>
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center relative z-10">
     <div class="lg:col-span-7 flex flex-col items-start space-y-5">
-      <!-- Trust badge -->
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-primary text-secondary-container font-label-md text-label-md uppercase tracking-wider shadow-sm border border-secondary-container/20">
-        <span class="material-symbols-outlined text-[18px]">bolt</span>
-        <span>Atención Inmediata por WhatsApp</span>
+      <!-- Real Logo with Slogan prominently in Hero -->
+      <div class="w-full max-w-md pb-2">
+        <Logo variant="full" theme="dark" showSlogan={true} class="w-full" />
       </div>
 
-      <h1 class="font-headline-xl text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-on-primary leading-tight font-extrabold">
-        Materiales, Pinturas y Herramientas para Hogar y Obra
+      <!-- Gran Apertura Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 font-label-badge text-label-badge uppercase tracking-wider border border-emerald-500/40">
+        <span class="material-symbols-outlined text-[18px] text-emerald-400">celebration</span>
+        <span class="font-bold">¡Gran Apertura en Pueblo Andino, Santa Fe!</span>
+      </div>
+
+      <!-- Handwritten-style motto accent from flyer -->
+      <div class="text-secondary-container font-headline-sm text-lg md:text-xl font-bold italic tracking-wide">
+        “Construí, Repará, Mejorá tu hogar”
+      </div>
+
+      <h1 class="font-headline-xl text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white leading-tight font-extrabold">
+        Materiales, Pinturas y Herramientas en Andino
       </h1>
 
-      <p class="font-body-lg text-base md:text-lg text-on-primary-container max-w-2xl leading-relaxed">
-        Encontranos sobre <strong class="text-on-primary underline decoration-secondary-container underline-offset-4">{tienda.negocio.direccion}</strong>. Stock permanente, acopio asegurado y despacho directo para particulares, profesionales y empresas constructoras.
+      <p class="font-body-lg text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed">
+        Llegamos a Pueblo Andino para acompañar cada etapa de tu obra o refacción en <strong class="text-white underline decoration-secondary-container underline-offset-4">{tienda.negocio.direccionCompleta}</strong>. Atención directa, asesoramiento personalizado y los mejores precios de la región.
       </p>
 
       <!-- CTA Action Cluster -->
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
         <a
-          href="#ofertas"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all text-center font-bold"
+          href="#ofertas-apertura"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-lg active:translate-y-0.5 transition-all text-center font-bold"
         >
           <span class="material-symbols-outlined text-[20px]">local_offer</span>
-          <span>Ver Ofertas de la Semana</span>
+          <span>Ver Combos de Apertura</span>
         </a>
 
         <a
           href={heroWaUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-lg text-label-lg uppercase rounded shadow-[0_4px_0px_#121519] active:translate-y-0.5 transition-all text-center font-bold"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-label-lg text-label-lg uppercase rounded shadow-lg active:translate-y-0.5 transition-all text-center font-bold"
         >
-          <span class="material-symbols-outlined text-[20px] text-secondary">forum</span>
-          <span>Consultar Stock Ahora</span>
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+          <span>WhatsApp ({tienda.negocio.whatsappDisplay})</span>
         </a>
       </div>
 
-      <!-- Quick Specs Banner -->
-      <div class="grid grid-cols-3 gap-3 pt-6 border-t border-primary/60 w-full">
-        <div class="bg-primary/40 p-2.5 rounded border border-primary-fixed-dim/10">
-          <div class="font-label-badge text-label-badge text-on-primary-container uppercase">Despacho</div>
-          <div class="font-label-md text-label-md text-on-primary font-bold">En el día</div>
+      <!-- Quick Specs Banner with Real Address & Real Phone -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/10 w-full">
+        <div class="bg-primary-container p-3 rounded-lg border border-white/10">
+          <div class="font-label-badge text-label-badge text-secondary-container uppercase font-bold">Dirección</div>
+          <div class="font-label-md text-sm text-white font-bold">{tienda.negocio.direccion}</div>
+          <div class="text-[11px] text-slate-400">Pueblo Andino, SF</div>
         </div>
-        <div class="bg-primary/40 p-2.5 rounded border border-primary-fixed-dim/10">
-          <div class="font-label-badge text-label-badge text-on-primary-container uppercase">Acopio</div>
-          <div class="font-label-md text-label-md text-on-primary font-bold">Sin cargo x 90d</div>
+        <div class="bg-primary-container p-3 rounded-lg border border-white/10">
+          <div class="font-label-badge text-label-badge text-secondary-container uppercase font-bold">Consultas y Pedidos</div>
+          <div class="font-label-md text-sm text-white font-bold">{tienda.negocio.telefonoLlamadas}</div>
+          <div class="text-[11px] text-slate-400">WhatsApp inmediato</div>
         </div>
-        <div class="bg-primary/40 p-2.5 rounded border border-primary-fixed-dim/10">
-          <div class="font-label-badge text-label-badge text-on-primary-container uppercase">Mostrador</div>
-          <div class="font-label-md text-label-md text-on-primary font-bold">Retiro exprés</div>
+        <div class="bg-primary-container p-3 rounded-lg border border-white/10">
+          <div class="font-label-badge text-label-badge text-secondary-container uppercase font-bold">Gran Apertura</div>
+          <div class="font-label-md text-sm text-emerald-400 font-bold">5 Combos Especiales</div>
+          <div class="text-[11px] text-slate-400">Desde $99.000</div>
         </div>
       </div>
     </div>
 
     <!-- Hero Visual Accent -->
     <div class="lg:col-span-5 relative flex justify-center">
-      <div class="relative w-full max-w-md bg-primary p-3 rounded-xl shadow-2xl border-2 border-primary-fixed-dim/20">
-        <div class="overflow-hidden rounded-lg aspect-square relative bg-primary-container">
+      <div class="relative w-full max-w-md bg-primary-container p-3 rounded-2xl shadow-2xl border-2 border-secondary-container/40">
+        <div class="overflow-hidden rounded-xl aspect-square relative bg-white/5 flex items-center justify-center p-4">
           <img
             src={tienda.productoDestacado.imagen}
             alt={tienda.productoDestacado.nombre}
             fetchpriority="high"
-            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-500"
           />
-          <div class="absolute top-3 left-3 bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-2.5 py-1 rounded shadow font-bold tracking-wider uppercase">
-            DESTACADO DE OBRA
+          <div class="absolute top-3 left-3 bg-secondary-container text-on-secondary-container font-label-badge text-label-badge px-3 py-1 rounded shadow font-bold tracking-wider uppercase">
+            ★ PROMO ESTRELLA APERTURA
+          </div>
+          <div class="absolute bottom-3 right-3 bg-slate-900/95 text-white font-price-display text-2xl px-3 py-1.5 rounded-lg shadow-lg border border-white/20 font-extrabold">
+            $ 219.000
           </div>
         </div>
-        <div class="p-4 bg-primary-container rounded-b-lg mt-2 flex items-center justify-between border border-primary">
+        <div class="p-4 bg-primary rounded-xl mt-2 flex items-center justify-between border border-white/10">
           <div>
-            <span class="font-label-badge text-label-badge text-secondary-container uppercase block tracking-wider">
-              Disponibilidad en Playa
+            <span class="font-label-badge text-label-badge text-secondary-container uppercase block tracking-wider font-bold">
+              Combo SikaFill Fibrado 20kg + Kit
             </span>
-            <span class="font-headline-sm text-headline-sm text-on-primary font-bold">
-              Retiro directo en Ruta 26S
+            <span class="font-body-sm text-xs text-slate-300">
+              Incluye rodillo 22cm, pincel 2", bandeja y manta 25m
             </span>
           </div>
-          <span class="material-symbols-outlined text-secondary-container text-[28px]">forklift</span>
+          <a
+            href="#ofertas-apertura"
+            class="w-10 h-10 rounded-full bg-secondary-container hover:bg-secondary text-on-secondary-container flex items-center justify-center shrink-0 transition-colors shadow"
+            aria-label="Ver combo"
+          >
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </a>
         </div>
       </div>
     </div>

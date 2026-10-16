@@ -1,0 +1,145 @@
+---
+interface Props {
+  variant?: 'full' | 'compact' | 'mark';
+  theme?: 'dark' | 'light';
+  class?: string;
+  showSlogan?: boolean;
+}
+
+const {
+  variant = 'compact',
+  theme = 'dark',
+  class: className = '',
+  showSlogan = false,
+} = Astro.props;
+
+const isLight = theme === 'light';
+const textColor = isLight ? '#12161c' : '#ffffff';
+const orange = '#ff6e00';
+---
+
+{variant === 'mark' ? (
+  <svg
+    class={`h-10 w-auto select-none ${className}`}
+    viewBox="0 0 170 120"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="H-Ferretería"
+  >
+    <!-- Gabled Roof structure -->
+    <path d="M 8 70 L 118 12 L 168 47 L 158 59 L 118 28 L 22 79 Z" fill={orange} />
+
+    <!-- 3 Vertical Pillars under left slope -->
+    <rect x="22" y="78" width="11" height="34" fill={orange} />
+    <rect x="42" y="67" width="11" height="45" fill={orange} />
+    <rect x="62" y="56" width="11" height="56" fill={orange} />
+
+    <!-- LETTER 'H' (White or Dark according to theme) -->
+    <rect x="85" y="38" width="18" height="74" fill={textColor} />
+    <rect x="103" y="65" width="26" height="18" fill={textColor} />
+    <rect x="129" y="38" width="18" height="74" fill={textColor} />
+  </svg>
+) : variant === 'compact' ? (
+  <svg
+    class={`h-10 md:h-12 w-auto select-none ${className}`}
+    viewBox="0 0 540 125"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="H-Ferretería"
+  >
+    <!-- Gabled Roof structure -->
+    <path d="M 8 68 L 118 12 L 190 48 L 180 60 L 118 27 L 22 77 Z" fill={orange} />
+
+    <!-- 3 Vertical Pillars under left slope -->
+    <rect x="22" y="76" width="11" height="36" fill={orange} />
+    <rect x="42" y="65" width="11" height="47" fill={orange} />
+    <rect x="62" y="54" width="11" height="58" fill={orange} />
+
+    <!-- LETTER 'H' -->
+    <rect x="85" y="38" width="18" height="74" fill={textColor} />
+    <rect x="103" y="65" width="26" height="18" fill={textColor} />
+    <rect x="129" y="38" width="18" height="74" fill={textColor} />
+
+    <!-- ORANGE HYPHEN '-' -->
+    <rect x="155" y="66" width="16" height="16" rx="2" fill={orange} />
+
+    <!-- FERRETERÍA -->
+    <text
+      x="180"
+      y="112"
+      fill={textColor}
+      font-family="'Chivo', 'Arial Black', Impact, sans-serif"
+      font-weight="900"
+      font-size="62"
+      letter-spacing="1.5"
+    >
+      FERRETERÍA
+    </text>
+
+    {showSlogan && (
+      <text
+        x="22"
+        y="136"
+        fill={textColor}
+        font-family="'Space Grotesk', 'Arial', sans-serif"
+        font-weight="700"
+        font-size="13"
+        letter-spacing="3.5"
+        opacity="0.9"
+      >
+        TU PROYECTO, EN LAS MEJORES MANOS
+      </text>
+    )}
+  </svg>
+) : (
+  <svg
+    class={`w-full max-w-lg h-auto select-none ${className}`}
+    viewBox="0 0 680 148"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="H-Ferretería - Tu proyecto, en las mejores manos"
+  >
+    <!-- Gabled Roof structure -->
+    <path d="M 12 70 L 135 14 L 218 53 L 208 65 L 135 29 L 26 79 Z" fill={orange} />
+
+    <!-- 3 Vertical Pillars supporting left overhang -->
+    <rect x="25" y="77" width="12" height="34" fill={orange} />
+    <rect x="47" y="66" width="12" height="45" fill={orange} />
+    <rect x="69" y="55" width="12" height="56" fill={orange} />
+
+    <!-- LETTER 'H' -->
+    <rect x="94" y="38" width="19" height="73" fill={textColor} />
+    <rect x="113" y="65" width="28" height="18" fill={textColor} />
+    <rect x="141" y="38" width="19" height="73" fill={textColor} />
+
+    <!-- ORANGE HYPHEN '-' -->
+    <rect x="169" y="66" width="17" height="16" rx="2" fill={orange} />
+
+    <!-- WORDMARK: FERRETERÍA -->
+    <text
+      x="194"
+      y="111"
+      fill={textColor}
+      font-family="'Chivo', 'Arial Black', Impact, sans-serif"
+      font-weight="900"
+      font-size="64"
+      letter-spacing="1.5"
+    >
+      FERRETERÍA
+    </text>
+
+    <!-- SLOGAN -->
+    <text
+      x="25"
+      y="139"
+      fill={textColor}
+      font-family="'Space Grotesk', 'Arial', sans-serif"
+      font-weight="700"
+      font-size="14.5"
+      letter-spacing="3.8"
+      opacity="0.95"
+    >
+      TU PROYECTO, EN LAS MEJORES MANOS
+    </text>
+  </svg>
+)}

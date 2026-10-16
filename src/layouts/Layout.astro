@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = `${tienda.negocio.nombre} | Materiales, Pinturas y Herramientas - ${tienda.negocio.direccion}`,
-  description = `Venta mayorista y minorista de materiales para la construcción, pinturas e impermeabilizantes en ${tienda.negocio.direccion}. Atención directa por WhatsApp ${tienda.negocio.telefonoLlamadas}.`,
+  title = `${tienda.negocio.nombre} | Gran Apertura en ${tienda.negocio.localidad} - ${tienda.negocio.direccion}`,
+  description = `Gran Apertura de ${tienda.negocio.nombre} en ${tienda.negocio.direccionCompleta}. Combos exclusivos en impermeabilizantes Sika, Megaflex, pinturas y herramientas. Pedidos por WhatsApp al ${tienda.negocio.telefonoLlamadas}.`,
 } = Astro.props;
 ---
 
@@ -25,7 +25,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800&family=Space+Grotesk:wght@700&family=Work+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800;900&family=Space+Grotesk:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -33,15 +33,15 @@ const {
       rel="stylesheet"
     />
 
-    <!-- Open Graph / Meta -->
+    <!-- Open Graph / Social Meta -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/sherwin-20l.jpg" />
+    <meta property="og:image" content="/images/folleto-limpio.webp" />
 
     <title>{title}</title>
   </head>
-  <body class="bg-background text-on-surface font-body-md antialiased pb-20 md:pb-0">
+  <body class="bg-background text-on-surface font-body antialiased pb-20 md:pb-0">
     <slot />
   </body>
 </html>

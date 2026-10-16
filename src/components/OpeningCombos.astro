@@ -1,0 +1,274 @@
+---
+import { tienda, formatearMoneda, buildWhatsAppUrl } from '../data/tienda';
+
+const combos = tienda.combosApertura;
+const flyerUrl = tienda.negocio.folletoUrl;
+
+function getComboTheme(color: string) {
+  switch (color) {
+    case 'emerald':
+      return {
+        badgeBg: 'bg-emerald-600 text-white',
+        cardBorder: 'border-emerald-500/30 hover:border-emerald-500',
+        accentText: 'text-emerald-700',
+        priceBg: 'bg-emerald-50',
+        iconBg: 'bg-emerald-600 text-white',
+      };
+    case 'amber':
+      return {
+        badgeBg: 'bg-amber-600 text-white',
+        cardBorder: 'border-amber-500/30 hover:border-amber-500',
+        accentText: 'text-amber-700',
+        priceBg: 'bg-amber-50',
+        iconBg: 'bg-amber-600 text-white',
+      };
+    case 'blue':
+      return {
+        badgeBg: 'bg-sky-600 text-white',
+        cardBorder: 'border-sky-500/30 hover:border-sky-500',
+        accentText: 'text-sky-700',
+        priceBg: 'bg-sky-50',
+        iconBg: 'bg-sky-600 text-white',
+      };
+    case 'rose':
+      return {
+        badgeBg: 'bg-rose-600 text-white',
+        cardBorder: 'border-rose-500/30 hover:border-rose-500',
+        accentText: 'text-rose-700',
+        priceBg: 'bg-rose-50',
+        iconBg: 'bg-rose-600 text-white',
+      };
+    case 'slate':
+    default:
+      return {
+        badgeBg: 'bg-slate-900 text-white',
+        cardBorder: 'border-slate-700/30 hover:border-slate-800',
+        accentText: 'text-slate-900',
+        priceBg: 'bg-slate-100',
+        iconBg: 'bg-slate-900 text-white',
+      };
+  }
+}
+---
+
+<section class="w-full bg-surface-container-low py-14 md:py-20 px-4 md:px-8 border-b border-outline-variant/30" id="ofertas-apertura">
+  <div class="max-w-7xl mx-auto space-y-10">
+    <!-- Banner Gran Apertura Header -->
+    <div class="bg-gradient-to-r from-primary via-primary-container to-primary text-white rounded-2xl p-6 md:p-10 shadow-xl border border-secondary-container/30 relative overflow-hidden">
+      <!-- Decorative background lines -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ff6e00 1px, transparent 1px); background-size: 24px 24px;"></div>
+      
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div class="space-y-3 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-label-badge text-label-badge uppercase tracking-widest font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>GRAN APERTURA • TE ESPERAMOS EN ANDINO</span>
+          </div>
+
+          <h2 class="font-headline-xl text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white font-extrabold leading-tight">
+            Promociones de Apertura
+          </h2>
+
+          <p class="font-body-lg text-base md:text-lg text-slate-300 leading-relaxed">
+            Aprovechá nuestros <strong class="text-white">combos exclusivos con precio de costo</strong> para impermeabilización, techos y pintura. Kits completos con herramientas listas para usar en obra o en tu casa.
+          </p>
+        </div>
+
+        <!-- Action Badge / Flyer modal trigger -->
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
+          <a
+            href={flyerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg uppercase rounded shadow-lg transition-all font-bold text-center"
+          >
+            <span class="material-symbols-outlined text-[20px]">campaign</span>
+            <span>Ver Folleto Oficial</span>
+          </a>
+
+          <div class="inline-flex items-center gap-2 text-xs text-slate-400 justify-center">
+            <span class="material-symbols-outlined text-emerald-400 text-[18px]">verified</span>
+            <span>Precios válidos hasta agotar stock</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories strip directly inside or below opening banner -->
+      <div class="mt-8 pt-6 border-t border-white/10">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-secondary-container">category</span>
+          <span>Rubros Principales en Salón de Ventas:</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
+          {tienda.categorias.map((cat) => (
+            <div class="bg-white/5 hover:bg-white/10 transition-colors p-2.5 rounded border border-white/10 flex items-center gap-2 text-white">
+              <span class="material-symbols-outlined text-[20px] text-secondary-container">{cat.icono}</span>
+              <span class="font-label-badge text-xs uppercase font-bold tracking-wide">{cat.nombre}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 COMBOS GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {combos.map((combo, idx) => {
+        const theme = getComboTheme(combo.badgeColor);
+        const waUrl = buildWhatsAppUrl(tienda.negocio.whatsappInternacional, combo.mensajeWhatsApp);
+        const ahorro = combo.precioAnterior - combo.precio;
+        const isFeatured = idx === 0 || idx === 1;
+
+        return (
+          <div class={`bg-surface-container-lowest rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden border-2 ${theme.cardBorder} group relative`}>
+            <!-- Top Tag Ribbon -->
+            <div class="p-5 pb-3">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class={`inline-flex items-center gap-1.5 font-label-badge text-label-badge px-2.5 py-1 rounded font-bold uppercase tracking-wider ${theme.badgeBg}`}>
+                  <span class="material-symbols-outlined text-[14px]">roofing</span>
+                  <span>{combo.badge}</span>
+                </span>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  Andino, SF
+                </span>
+              </div>
+
+              <h3 class="font-headline-sm text-xl uppercase text-on-surface font-extrabold leading-tight">
+                {combo.nombre}
+              </h3>
+              <p class="font-body-sm text-sm text-on-surface-variant font-medium mt-1">
+                {combo.subtitulo}
+              </p>
+            </div>
+
+            <!-- Product Visual with high quality asset -->
+            <div class="relative bg-surface-container aspect-[4/3] flex items-center justify-center p-4 overflow-hidden border-y border-outline-variant/30">
+              <img
+                src={combo.imagen}
+                alt={combo.nombre}
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute bottom-2 right-2 bg-surface-container-lowest/90 backdrop-blur px-2 py-0.5 rounded text-[11px] font-bold text-slate-700 shadow border border-outline-variant/40">
+                {combo.categoria}
+              </div>
+            </div>
+
+            <!-- INCLUYE: Checklist details -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="font-label-badge text-label-badge uppercase tracking-wider text-slate-500 font-extrabold block mb-2.5">
+                  El Combo Incluye:
+                </span>
+                <ul class="space-y-1.5">
+                  {combo.incluye.map((item) => (
+                    <li class="flex items-start gap-2 text-xs md:text-sm text-on-surface">
+                      <span class="material-symbols-outlined text-[16px] text-emerald-600 mt-0.5 shrink-0">check_circle</span>
+                      <span class="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Price Box -->
+              <div class={`p-4 rounded-lg ${theme.priceBg} border border-outline-variant/30 space-y-1`}>
+                <div class="flex items-center justify-between text-xs">
+                  <span class="line-through text-slate-400 font-semibold">
+                    Precio Lista: {formatearMoneda(combo.precioAnterior, combo.moneda)}
+                  </span>
+                  <span class="font-label-badge font-bold uppercase text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
+                    Ahorro {formatearMoneda(ahorro, combo.moneda)}
+                  </span>
+                </div>
+
+                <div class="pt-1">
+                  <span class="font-label-badge text-[11px] uppercase tracking-wider text-slate-600 block font-bold">
+                    PRECIO DE APERTURA:
+                  </span>
+                  <div class="font-price-display text-3xl sm:text-4xl font-extrabold text-slate-900 leading-none mt-1">
+                    {formatearMoneda(combo.precio, combo.moneda)}
+                  </div>
+                  <span class="font-body-sm text-[11px] text-slate-500 font-medium block mt-1">
+                    (IVA incluido • Retiro en mostrador o entrega)
+                  </span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="grid grid-cols-2 gap-2 pt-1">
+                <a
+                  href={combo.linkMercadoPago}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center py-2.5 px-3 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-md text-label-md uppercase rounded transition-colors text-center font-bold text-xs shadow-sm"
+                >
+                  <span class="material-symbols-outlined text-[16px] mr-1">shopping_bag</span>
+                  <span>Comprar</span>
+                </a>
+                <a
+                  href={waUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-label-md text-label-md uppercase rounded transition-colors text-center font-bold text-xs shadow-sm"
+                >
+                  <span class="material-symbols-outlined text-[16px] mr-1">chat</span>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <!-- 6th Promo Box: Folleto Completo & Mostrador -->
+      <div class="bg-gradient-to-br from-primary-container via-slate-900 to-primary text-white rounded-xl shadow-md p-6 md:p-8 flex flex-col justify-between border-2 border-secondary-container/40">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-[28px]">storefront</span>
+          </div>
+          <span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary-container font-bold">
+            Te Esperamos en Andino
+          </span>
+          <h3 class="font-headline-sm text-2xl uppercase font-extrabold text-white leading-tight">
+            ¿Buscás otros materiales o herramientas?
+          </h3>
+          <p class="font-body-sm text-sm text-slate-300 leading-relaxed">
+            Tenemos stock permanente en áridos, cemento, hierros, pinturas, electricidad, plomería y ferretería general. Pasá por nuestro local en <strong class="text-white">{tienda.negocio.direccion}</strong> o consultanos por WhatsApp.
+          </p>
+
+          <div class="p-3 bg-white/10 rounded border border-white/10 space-y-1 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary-container text-[16px]">location_on</span>
+              <span>{tienda.negocio.direccionCompleta}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-[16px]">chat</span>
+              <span>WhatsApp: {tienda.negocio.whatsappDisplay}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 space-y-2">
+          <a
+            href={flyerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-white text-slate-900 hover:bg-slate-100 font-label-md text-label-md uppercase rounded font-bold text-center transition-colors shadow"
+          >
+            <span class="material-symbols-outlined text-[18px]">image</span>
+            <span>Ver Folleto Original</span>
+          </a>
+
+          <a
+            href={buildWhatsAppUrl(tienda.negocio.whatsappInternacional, 'Hola H-Ferretería! Quisiera consultar precios de otros materiales para mi obra.')}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-label-md text-label-md uppercase rounded font-bold text-center transition-colors shadow"
+          >
+            <span class="material-symbols-outlined text-[18px]">send</span>
+            <span>Consultar Otros Materiales</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

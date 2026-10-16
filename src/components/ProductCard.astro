@@ -31,7 +31,7 @@ function getBadgeClasses(tipo?: string) {
         src={producto.imagen}
         alt={producto.nombre}
         loading="lazy"
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300"
       />
       {producto.badge && (
         <span class={`absolute top-2 left-2 font-label-badge text-label-badge px-2 py-0.5 rounded font-bold shadow uppercase tracking-wider ${getBadgeClasses(producto.badgeTipo)}`}>
@@ -91,7 +91,7 @@ function getBadgeClasses(tipo?: string) {
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center py-2 px-2 bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md uppercase rounded transition-colors text-center font-bold text-xs"
+        class="inline-flex items-center justify-center py-2 px-2 bg-emerald-600 text-white hover:bg-emerald-700 font-label-md text-label-md uppercase rounded transition-colors text-center font-bold text-xs"
       >
         WhatsApp
       </a>

@@ -1,3 +1,21 @@
+export interface ComboApertura {
+  id: string;
+  nombre: string;
+  subtitulo: string;
+  categoria: string;
+  precio: number;
+  precioAnterior: number;
+  moneda: string;
+  imagen: string;
+  badge: string;
+  badgeColor: 'emerald' | 'amber' | 'blue' | 'rose' | 'slate';
+  iconoColor: string;
+  incluye: string[];
+  specs: { label: string; valor: string }[];
+  linkMercadoPago: string;
+  mensajeWhatsApp: string;
+}
+
 export interface Producto {
   id: string;
   nombre: string;
@@ -17,9 +35,15 @@ export interface Producto {
 
 export interface DatosNegocio {
   nombre: string;
+  nombreCorto: string;
   razonSocial: string;
+  slogan: string;
+  lema: string;
+  evento: string;
   cuit: string;
   direccion: string;
+  localidad: string;
+  direccionCompleta: string;
   direccionDetalle: string;
   telefonoLlamadas: string;
   whatsappInternacional: string;
@@ -28,46 +52,289 @@ export interface DatosNegocio {
   horarioSemana: string;
   horarioSabado: string;
   googleMapsUrl: string;
+  googleMapsEmbed: string;
+  folletoUrl: string;
 }
 
 export const tienda = {
   negocio: {
-    nombre: "Ferretería H",
-    razonSocial: "Ferretería H S.R.L.",
+    nombre: "H-Ferretería",
+    nombreCorto: "Ferretería H",
+    razonSocial: "H-Ferretería",
+    slogan: "Tu proyecto, en las mejores manos",
+    lema: "Construí, Repará, Mejorá tu hogar",
+    evento: "Gran Apertura • Te esperamos en Andino",
     cuit: "30-71829304-8",
-    direccion: "Ruta Provincial 26S km 2",
-    direccionDetalle: "Acceso directo asfaltado para camiones y acoplados (Frente al corredor logístico)",
-    telefonoLlamadas: "341-777777",
-    whatsappInternacional: "549341777777",
-    whatsappDisplay: "+54 9 341 777777",
-    email: "presupuestos@ferreteriah.com.ar",
-    horarioSemana: "Lunes a Viernes: 07:30 a 18:30 hs (Horario corrido)",
+    direccion: "Ana de Manguiaterra 45",
+    localidad: "Andino, Santa Fe",
+    direccionCompleta: "Ana de Manguiaterra 45, Andino - Santa Fe",
+    direccionDetalle: "Pueblo Andino, Santa Fe (Fácil acceso vehicular y estacionamiento propio)",
+    telefonoLlamadas: "0341 6 587861",
+    whatsappInternacional: "5493416587861",
+    whatsappDisplay: "0341 6 587861",
+    email: "consultas@ferreteriah.com.ar",
+    horarioSemana: "Lunes a Viernes: 08:00 a 18:30 hs (Horario corrido)",
     horarioSabado: "Sábados: 08:00 a 13:00 hs",
-    googleMapsUrl: "https://maps.google.com/?q=Ruta+Provincial+26S+km+2",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Ana+de+Manguiaterra+45,+Andino,+Santa+Fe",
+    googleMapsEmbed: "https://maps.google.com/maps?q=Ana%20de%20Manguiaterra%2045,%20Andino,%20Santa%20Fe&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    folletoUrl: "/images/folleto-limpio.webp",
   } satisfies DatosNegocio,
 
+  categorias: [
+    { nombre: "Construcción", icono: "foundation", desc: "Áridos, cementos, hierros y mampostería" },
+    { nombre: "Herramientas", icono: "construction", desc: "Eléctricas, manuales y de banco" },
+    { nombre: "Electricidad", icono: "bolt", desc: "Conductores, térmicas e iluminación LED" },
+    { nombre: "Plomería", icono: "plumbing", desc: "Termofusión, cañerías y desagües" },
+    { nombre: "Pinturas", icono: "format_paint", desc: "Impermeabilizantes, látex y esmaltes" },
+    { nombre: "Hogar y Jardín", icono: "yard", desc: "Riego, bombas y mantenimiento" },
+  ],
+
+  pilares: [
+    {
+      titulo: "Marcas de Confianza",
+      descripcion: "Distribuidores de Sika, Megaflex, DeWalt, Bosch, Klaukol y líderes del sector.",
+      icono: "verified",
+      tag: "100% Originales"
+    },
+    {
+      titulo: "Los Mejores Precios",
+      descripcion: "Precios directos de fábrica, promociones de apertura y descuentos por volumen de gremio.",
+      icono: "sell",
+      tag: "Ahorro Real"
+    },
+    {
+      titulo: "Varios Medios de Pago",
+      descripcion: "Efectivo en mostrador, transferencias, tarjetas de débito y crédito con cuotas.",
+      icono: "credit_card",
+      tag: "Facilidades"
+    },
+    {
+      titulo: "Asesoramiento Personalizado",
+      descripcion: "Atención técnica especializada para orientarte en la solución justa para tu proyecto u obra.",
+      icono: "support_agent",
+      tag: "Atención Experta"
+    }
+  ],
+
+  combosApertura: [
+    {
+      id: "combo-sikafill-techos",
+      nombre: "Combo SikaFill Techos",
+      subtitulo: "Solución económica y confiable.",
+      categoria: "Impermeabilización Techos",
+      precio: 197000,
+      precioAnterior: 245000,
+      moneda: "$",
+      imagen: "/images/combos/sikafill-techos-20kg.png",
+      badge: "PROMOCIÓN APERTURA",
+      badgeColor: "emerald",
+      iconoColor: "#16a34a",
+      incluye: [
+        "1 Tarro SikaFill Techos 20 kg",
+        "1 Rodillo lana 22 cm",
+        "1 Pincel 2\"",
+        "1 Bandeja plástica para pintor",
+        "1 Rollo manta geotextil 25 cm x 25 m"
+      ],
+      specs: [
+        { label: "Capacidad", valor: "20 Kg" },
+        { label: "Manta", valor: "25 m" },
+        { label: "Rodillo", valor: "22 cm lana" }
+      ],
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería! Quiero encargar el Combo SikaFill Techos a $197.000 de la promoción de apertura."
+    },
+    {
+      id: "combo-sikafill-fibrado",
+      nombre: "Combo SikaFill Fibrado",
+      subtitulo: "Mayor resistencia y durabilidad.",
+      categoria: "Impermeabilización Fibrada",
+      precio: 219000,
+      precioAnterior: 275000,
+      moneda: "$",
+      imagen: "/images/combos/sikafill-fibrado-20kg.webp",
+      badge: "MÁS RESISTENTE",
+      badgeColor: "amber",
+      iconoColor: "#ea580c",
+      incluye: [
+        "1 Tarro SikaFill Fibrado 20 kg",
+        "1 Rodillo lana 22 cm",
+        "1 Pincel 2\"",
+        "1 Bandeja plástica para pintor",
+        "1 Rollo manta geotextil 25 cm x 25 m"
+      ],
+      specs: [
+        { label: "Fórmula", valor: "Con microfibras" },
+        { label: "Capacidad", valor: "20 Kg" },
+        { label: "Manta", valor: "25 m" }
+      ],
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería! Quiero encargar el Combo SikaFill Fibrado a $219.000 de la promoción de apertura."
+    },
+    {
+      id: "combo-sikalastic-560",
+      nombre: "Combo Sikalastic 560",
+      subtitulo: "Máximo rendimiento y protección.",
+      categoria: "Membrana Poliuretánica Premium",
+      precio: 314000,
+      precioAnterior: 385000,
+      moneda: "$",
+      imagen: "/images/combos/sikalastic-560-20kg.jpg",
+      badge: "MÁXIMA CALIDAD",
+      badgeColor: "blue",
+      iconoColor: "#0284c7",
+      incluye: [
+        "1 Tarro Sikalastic 560 20 kg",
+        "1 Rodillo lana 22 cm",
+        "1 Pincel 2\"",
+        "1 Bandeja plástica para pintor",
+        "1 Rollo manta geotextil 25 cm x 25 m"
+      ],
+      specs: [
+        { label: "Tecnología", valor: "Poliuretano híbrido" },
+        { label: "Capacidad", valor: "20 Kg" },
+        { label: "Protección", valor: "UV Extrema" }
+      ],
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería! Quiero encargar el Combo Sikalastic 560 a $314.000 de la promoción de apertura."
+    },
+    {
+      id: "combo-manta-geotextil",
+      nombre: "Combo Manta Geotextil",
+      subtitulo: "Refuerzo para mayor seguridad.",
+      categoria: "Refuerzo Estructural",
+      precio: 99000,
+      precioAnterior: 125000,
+      moneda: "$",
+      imagen: "/images/combos/manta-geotextil-1x25m.webp",
+      badge: "KIT REFUERZO",
+      badgeColor: "rose",
+      iconoColor: "#e11d48",
+      incluye: [
+        "1 Rollo manta geotextil 1 m x 25 m",
+        "1 Cúter profesional",
+        "1 Cinta métrica 5 m",
+        "1 Rodillo auxiliar"
+      ],
+      specs: [
+        { label: "Medidas", valor: "1 m x 25 m" },
+        { label: "Rinde", valor: "25 m²" },
+        { label: "Kit", valor: "4 piezas" }
+      ],
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería! Quiero encargar el Combo Manta Geotextil a $99.000 de la promoción de apertura."
+    },
+    {
+      id: "combo-membrana-megaflex",
+      nombre: "Combo Membrana Asfáltica Megaflex",
+      subtitulo: "Sistema tradicional de alta durabilidad.",
+      categoria: "Membrana Asfáltica No Crack 4mm",
+      precio: 235000,
+      precioAnterior: 290000,
+      moneda: "$",
+      imagen: "/images/combos/megaflex-megalum-4mm.jpg",
+      badge: "CALIDAD MEGAFLEX",
+      badgeColor: "slate",
+      iconoColor: "#1e293b",
+      incluye: [
+        "1 Rollo membrana Megaflex Megalum No Crack 4 mm (1 x 10 m)",
+        "1 Soplete con manguera",
+        "1 Guantes de trabajo (par)",
+        "1 Cepillo de alambre",
+        "1 Espátula"
+      ],
+      specs: [
+        { label: "Espesor", valor: "4 mm No Crack" },
+        { label: "Rollo", valor: "1 x 10 m (10 m²)" },
+        { label: "Kit instalación", valor: "Soplete + Accesorios" }
+      ],
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería! Quiero encargar el Combo Membrana Megaflex a $235.000 de la promoción de apertura."
+    }
+  ] satisfies ComboApertura[],
+
   productoDestacado: {
-    id: "sherwin-20l",
-    nombre: "Impermeabilizante Techo Terrazas Rojo 20lt. Sherwin-Williams",
-    categoria: "Pinturas & Impermeabilización Profesional",
-    descripcion: "Membrana elástica transitable de alta viscosidad. Evita filtraciones y goteras. Apto sobre membrana aluminizada.",
-    precio: 190000,
-    precioAnterior: 235000,
+    id: "combo-sikafill-fibrado",
+    nombre: "Combo SikaFill Fibrado 20kg + Kit Completo Pintor",
+    categoria: "Promoción Estrella Gran Apertura",
+    descripcion: "Mayor resistencia y durabilidad. Membrana líquida acrílica elástica con microfibras incorporadas para techos y terrazas. Incluye rodillo lana 22cm, pincel 2\", bandeja plástica y rollo manta geotextil 25cm x 25m.",
+    precio: 219000,
+    precioAnterior: 275000,
     moneda: "$",
-    imagen: "/sherwin-20l.jpg",
+    imagen: "/images/combos/sikafill-fibrado-20kg.webp",
     linkMercadoPago: "https://mpago.la/ejemplo",
-    mensajeWhatsApp: "Hola Ferretería H, quiero comprar el Impermeabilizante Sherwin-Williams 20L a $190.000.",
-    badge: "★ OFERTA ESPECIAL",
+    mensajeWhatsApp: "Hola H-Ferretería! Quiero encargar la Promoción Estrella: Combo SikaFill Fibrado a $219.000.",
+    badge: "★ PROMO ESTRELLA APERTURA",
     badgeTipo: "oferta",
     specs: [
-      { label: "Rendimiento", valor: "1.5 kg / m²" },
-      { label: "Acabado", valor: "Rojo Teja" },
-      { label: "Envase", valor: "Balde 20 Litros" }
+      { label: "Contenido", valor: "Balde 20 Kg" },
+      { label: "Fibras", valor: "Microfibras Sika" },
+      { label: "Kit Pintor", valor: "4 Accesorios + Manta" }
     ],
-    unidad: "Balde 20 Litros",
+    unidad: "Combo Completo Listo para Aplicar",
   } satisfies Producto,
 
   catalogo: [
+    {
+      id: "combo-sikafill-techos-item",
+      nombre: "Combo SikaFill Techos 20kg + Kit",
+      categoria: "Impermeabilizantes",
+      descripcion: "Solución económica y confiable para techos y terrazas con 4 accesorios de aplicación y rollo de geotextil.",
+      precio: 197000,
+      precioAnterior: 245000,
+      moneda: "$",
+      imagen: "/images/combos/sikafill-techos-20kg.png",
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería, quiero comprar el Combo SikaFill Techos 20kg a $197.000.",
+      badge: "PRECIO APERTURA",
+      badgeTipo: "oferta",
+      unidad: "Combo balde 20kg + kit",
+    },
+    {
+      id: "combo-sikalastic-560-item",
+      nombre: "Combo Sikalastic 560 Poliuretánico 20kg",
+      categoria: "Poliuretano Premium",
+      descripcion: "Máximo rendimiento y protección impermeable para cubiertas transitables con kit completo de aplicación.",
+      precio: 314000,
+      precioAnterior: 385000,
+      moneda: "$",
+      imagen: "/images/combos/sikalastic-560-20kg.jpg",
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería, quiero comprar el Combo Sikalastic 560 a $314.000.",
+      badge: "MÁXIMA DURABILIDAD",
+      badgeTipo: "oferta",
+      unidad: "Combo balde 20kg + kit",
+    },
+    {
+      id: "combo-manta-geotextil-item",
+      nombre: "Combo Manta Geotextil 1x25m + Herramientas",
+      categoria: "Refuerzo Techos",
+      descripcion: "Rollo de manta geotextil de 1m x 25m (25m²) con cúter profesional, cinta métrica de 5m y rodillo auxiliar.",
+      precio: 99000,
+      precioAnterior: 125000,
+      moneda: "$",
+      imagen: "/images/combos/manta-geotextil-1x25m.webp",
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería, quiero comprar el Combo Manta Geotextil a $99.000.",
+      badge: "KIT COMPLETO",
+      badgeTipo: "combo",
+      unidad: "Rollo 25m² + 3 herramientas",
+    },
+    {
+      id: "combo-megaflex-item",
+      nombre: "Combo Membrana Megaflex No Crack 4mm + Soplete",
+      categoria: "Membrana Asfáltica",
+      descripcion: "Membrana Megaflex Megalum No Crack 4mm con soplete, manguera, guantes, cepillo de alambre y espátula.",
+      precio: 235000,
+      precioAnterior: 290000,
+      moneda: "$",
+      imagen: "/images/combos/megaflex-megalum-4mm.jpg",
+      linkMercadoPago: "https://mpago.la/ejemplo",
+      mensajeWhatsApp: "Hola H-Ferretería, quiero comprar el Combo Membrana Megaflex a $235.000.",
+      badge: "CALIDAD OBRA",
+      badgeTipo: "gremio",
+      unidad: "Rollo 10m² + equipo soplete",
+    },
     {
       id: "amoladora-dewalt-850w",
       nombre: "Amoladora Angular 115mm 850W DeWalt",
@@ -78,76 +345,16 @@ export const tienda = {
       moneda: "$",
       imagen: "https://lh3.googleusercontent.com/aida-public/AB6AXuC20apnuw7mcSfd2f1T57FifAYoGFjuE6AEb0eoKKGmTYE1CylZtCgPY4zUrYcO23rrpC4p-NyqPj7FRcRTWhDvwCCJpW0QiufpsLA2Mp0zUrR6WiyC7SzFhH9vJRITLht823svdlqVvtgAxSqYKXFMJD-cYK_5pa2d_ITyJ2kxij06O_pW93IUBDZ1HTFW1y_6atteEZ2-FEH18PQl5ReHzJzGBxDXRUawE0gfiwVeh6DURxcEf_2ZSg",
       linkMercadoPago: "https://mpago.la/ejemplo",
-      mensajeWhatsApp: "Hola Ferretería H, quiero comprar la Amoladora Angular DeWalt 850W a $118.500.",
-      badge: "OFERTA HERRAMIENTAS",
-      badgeTipo: "oferta",
+      mensajeWhatsApp: "Hola H-Ferretería, quiero comprar la Amoladora Angular DeWalt 850W a $118.500.",
+      badge: "HERRAMIENTAS",
+      badgeTipo: "stock",
       unidad: "Unidad en caja",
-    },
-    {
-      id: "klaukol-impermeable-30kg",
-      nombre: "Adhesivo Klaukol Impermeable 30kg",
-      categoria: "Adhesivos Obra",
-      descripcion: "Mezcla adhesiva impermeable para colocación de pisos y revestimientos cerámicos exteriores en obra civil.",
-      precio: 18900,
-      precioAnterior: 22800,
-      moneda: "$",
-      imagen: "https://lh3.googleusercontent.com/aida-public/AB6AXuCmwIxcu_iPubFSOmSKRQW5WnoONFOXIqGNRzfd-Go13yI1hkdOv0auy4Ai6pW3fzhaAZy4-dUOJZEsIeFbgqU5FU9s0FLbgXT66R4BwRe2Aurpa8DO23panmRiUWPnNaYI6p7bqttNUadM43fIc4wfX1lYlp_RNw2ypbeg2l7sZf99_9F2W8D_5XSYBuDNjcyWeV2iwpYoZvxKYRDlGeXLWpdpDqD2408gYZIyeGoyNmDbuEHmnmATyg",
-      linkMercadoPago: "https://mpago.la/ejemplo",
-      mensajeWhatsApp: "Hola Ferretería H, quiero comprar el Adhesivo Klaukol Impermeable 30kg a $18.900.",
-      badge: "STOCK DISPONIBLE",
-      badgeTipo: "stock",
-      unidad: "Bolsa x 30kg",
-    },
-    {
-      id: "discos-bosch-115mm",
-      nombre: "Pack 10 Discos Corte Bosch 115x1.0mm",
-      categoria: "Abrasivos & Taller",
-      descripcion: "Corte rápido y limpio en metales y acero inoxidable sin rebabas. Estuche metálico protector.",
-      precio: 14200,
-      precioAnterior: 17500,
-      moneda: "$",
-      imagen: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7amkeUDMrem3IBusGKU8gkXxQagHFhJLQd3nZt7ERUztkxEK00oYdk73-UTx-5z6hFpS_LP6mbOeZbpsZZ7He-GEY_IJe3GQnnU7tQ3iQPdW_LjSIfNOAfuZCPu94FWRVyi7GgPPORrDHOo0BvsXMbRWtVCXBX9a-qoTOVdaa3Kmh2G_8iu5mkcJGdNbzavwO_r9WmswZV3-u6K3tbHP8xFj8GZv5bSeBmFw-tQp79sfxGvKJD0JQbw",
-      linkMercadoPago: "https://mpago.la/ejemplo",
-      mensajeWhatsApp: "Hola Ferretería H, quiero comprar el Pack 10 Discos Corte Bosch a $14.200.",
-      badge: "COMBO TALLER",
-      badgeTipo: "combo",
-      unidad: "Pack cerrado 10 u.",
-    },
-    {
-      id: "latex-antihongo-20l",
-      nombre: "Pintura Látex Int/Ext Antihongo 20L",
-      categoria: "Pinturas Obra",
-      descripcion: "Poder cubritivo superior, ultra lavable con aditivo antihongo de alta resistencia ambiental.",
-      precio: 84500,
-      precioAnterior: 108000,
-      moneda: "$",
-      imagen: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHuHXhidsTSCarNkKFaMYvvqSbnlWNOFHHuG5xProi9ZhCbkLtWMkEBfLsq6WTqEb8peVMmc9j1UKtG8_KJdmirr9sj-F86cBDJO1oIYYxFSIl5l3HrcaVqnNWbn5qrsFgmvkQj1vPXcmM72cKXUjNCwkPALLB4AIjy9WwO-c7CVUcJIEA-SwL-0ojo0rmcJOtBuG6_JXantzR-sfogJLfsisV0Ryy3_tWgriwU1z_U04hGp2Jw5HPzw",
-      linkMercadoPago: "https://mpago.la/ejemplo",
-      mensajeWhatsApp: "Hola Ferretería H, quiero comprar la Pintura Látex Antihongo 20L a $84.500.",
-      badge: "PRECIO GREMIO",
-      badgeTipo: "gremio",
-      unidad: "Balde de 20L",
-    },
-    {
-      id: "cemento-lomanegra-50kg",
-      nombre: "Cemento Portland Loma Negra 50kg",
-      categoria: "Materiales Gruesos",
-      descripcion: "Cemento tradicional tipo CPC 40 para todo tipo de hormigones, revoques y obras estructurales.",
-      precio: 12500,
-      precioAnterior: 14500,
-      moneda: "$",
-      imagen: "https://lh3.googleusercontent.com/aida-public/AB6AXuCmwIxcu_iPubFSOmSKRQW5WnoONFOXIqGNRzfd-Go13yI1hkdOv0auy4Ai6pW3fzhaAZy4-dUOJZEsIeFbgqU5FU9s0FLbgXT66R4BwRe2Aurpa8DO23panmRiUWPnNaYI6p7bqttNUadM43fIc4wfX1lYlp_RNw2ypbeg2l7sZf99_9F2W8D_5XSYBuDNjcyWeV2iwpYoZvxKYRDlGeXLWpdpDqD2408gYZIyeGoyNmDbuEHmnmATyg",
-      linkMercadoPago: "https://mpago.la/ejemplo",
-      mensajeWhatsApp: "Hola Ferretería H, quiero consultar stock y comprar Cemento Loma Negra 50kg a $12.500.",
-      badge: "ACOPIO ASEGURADO",
-      badgeTipo: "stock",
-      unidad: "Bolsa x 50kg",
     }
   ] satisfies Producto[],
 };
 
 export function formatearMoneda(monto: number, moneda: string = "$"): string {
-  return `${moneda}${monto.toLocaleString("es-AR")}`;
+  return `${moneda} ${monto.toLocaleString("es-AR")}`;
 }
 
 export function buildWhatsAppUrl(telefono: string, mensaje: string): string {
